@@ -1,0 +1,237 @@
+/* ═══════════════════════════════════════════════════════════
+   SHELL — matches landing page design language
+   Space Mono labels · Syne display · #2F6BFF blue · #04060f bg
+═══════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── root wrap ─────────────────────────────────────────── */
+.sh-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #04060f;
+  color: #dde5ff;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ══════════════════════════════════════════════════════════
+   NAV — 62px, matches landing lp-nav exactly
+══════════════════════════════════════════════════════════ */
+.sh-nav {
+  position: sticky; top: 0; z-index: 400;
+  background: rgba(3,5,9,.93);
+  border-bottom: 1px solid rgba(47,107,255,.1);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  flex-shrink: 0;
+}
+.sh-nav-inner {
+  height: 62px;
+  padding: 0 clamp(1.25rem,3vw,2.5rem);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* ── brand ─────────────────────────────────────────────── */
+.sh-brand {
+  display: flex; align-items: center; gap: .55rem;
+  text-decoration: none; flex-shrink: 0;
+  justify-self: start;
+}
+.sh-brand-box {
+  width: 28px; height: 28px;
+  border: 1.5px solid rgba(47,107,255,.45);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(47,107,255,.10);
+  box-shadow: 0 0 12px rgba(47,107,255,.15);
+  transition: box-shadow .25s;
+}
+.sh-brand:hover .sh-brand-box {
+  box-shadow: 0 0 20px rgba(47,107,255,.3);
+}
+.sh-brand-name {
+  font-family: 'Syne', 'Space Mono', monospace;
+  font-size: .92rem; font-weight: 800;
+  color: #dde5ff; letter-spacing: -.02em;
+}
+
+/* ── centered pill nav ─────────────────────────────────── */
+.sh-nav-pills {
+  display: flex; align-items: center;
+  gap: .25rem;
+  justify-self: center;
+}
+.sh-pill-group {
+  display: flex; align-items: center; gap: .15rem;
+  padding: .28rem .4rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border-color .2s, background .2s;
+}
+.sh-pill-group--on {
+  border-color: rgba(47,107,255,.15);
+  background: rgba(47,107,255,.06);
+}
+.sh-pill-role {
+  font-family: 'Space Mono', monospace;
+  font-size: .55rem; letter-spacing: .1em; text-transform: uppercase;
+  color: #3a4460;
+  padding-right: .55rem;
+  border-right: 1px solid rgba(47,107,255,.12);
+  margin-right: .3rem;
+  white-space: nowrap;
+  transition: color .2s;
+}
+.sh-pill-group--on .sh-pill-role { color: #2F6BFF; }
+.sh-pill {
+  display: flex; align-items: center;
+  padding: .4rem .85rem;
+  border-radius: 6px;
+  font-size: .84rem; font-weight: 400;
+  color: #6b7591; text-decoration: none; white-space: nowrap;
+  transition: color .15s, background .15s;
+}
+.sh-pill:hover { color: #dde5ff; background: rgba(255,255,255,.04); }
+.sh-pill--active {
+  color: #dde5ff;
+  background: rgba(47,107,255,.14);
+  font-weight: 500;
+}
+.sh-pill-divider {
+  width: 1px; height: 18px;
+  background: rgba(47,107,255,.1);
+  margin: 0 .5rem; flex-shrink: 0;
+}
+
+/* ── right badges ──────────────────────────────────────── */
+.sh-nav-right {
+  display: flex; align-items: center; gap: .65rem;
+  justify-self: end;
+}
+.sh-net-badge {
+  display: flex; align-items: center; gap: .4rem;
+  font-family: 'Space Mono', monospace;
+  font-size: .58rem; letter-spacing: .08em; text-transform: uppercase;
+  color: #3a4460;
+  border: 1px solid rgba(47,107,255,.12);
+  background: rgba(47,107,255,.04);
+  padding: .3rem .72rem; border-radius: 100px;
+  white-space: nowrap;
+}
+.sh-net-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #1aff8c; box-shadow: 0 0 6px #1aff8c; flex-shrink: 0;
+  animation: shPulse 2s ease-in-out infinite;
+}
+.sh-net-dot--blue { background: #2F6BFF; box-shadow: 0 0 6px #2F6BFF; }
+@keyframes shPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.55;transform:scale(.7)} }
+
+.nav-wallet {
+  display: flex; align-items: center; gap: .4rem;
+  font-family: 'Space Mono', monospace;
+  font-size: .63rem; color: #dde5ff;
+  border: 1px solid rgba(47,107,255,.15);
+  background: rgba(255,255,255,.03);
+  padding: .3rem .72rem; border-radius: 6px;
+  letter-spacing: .02em;
+}
+.nav-wallet-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: #2F6BFF; box-shadow: 0 0 5px #2F6BFF; flex-shrink: 0;
+}
+.sh-home-icon {
+  display: flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px;
+  border: 1px solid rgba(47,107,255,.12);
+  border-radius: 6px;
+  background: rgba(255,255,255,.025);
+  color: #6b7591; text-decoration: none;
+  transition: color .15s, border-color .15s, background .15s;
+}
+.sh-home-icon:hover {
+  color: #dde5ff;
+  border-color: rgba(47,107,255,.4);
+  background: rgba(47,107,255,.08);
+}
+
+/* ── breadcrumb subbar ─────────────────────────────────── */
+.sh-subbar {
+  border-top: 1px solid rgba(47,107,255,.07);
+  background: rgba(3,5,9,.6);
+}
+.sh-subbar .sh-nav-inner { height: 36px; }
+.nav-breadcrumb {
+  display: flex; align-items: center; gap: .4rem;
+}
+.nav-bc-link {
+  font-family: 'Space Mono', monospace;
+  font-size: .6rem; letter-spacing: .07em; text-transform: uppercase;
+  color: #3a4460; text-decoration: none;
+  transition: color .15s;
+}
+.nav-bc-link:hover { color: #2F6BFF; }
+.nav-bc-sep {
+  font-family: 'Space Mono', monospace;
+  font-size: .6rem; color: #3a4460; opacity: .4;
+}
+.nav-bc-cur {
+  font-family: 'Space Mono', monospace;
+  font-size: .6rem; letter-spacing: .07em; text-transform: uppercase;
+  color: #6b7591;
+}
+
+/* ── main ──────────────────────────────────────────────── */
+.sh-main { flex: 1; overflow: auto; }
+.sh-page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1.25rem,3vw,2.5rem) 5rem;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════════ */
+
+/* 1024px — tablet landscape: tighten gaps */
+@media (max-width: 1024px) {
+  .sh-nav-inner { padding: 0 clamp(1rem,2.5vw,2rem); }
+  .sh-pill      { padding: .4rem .65rem; font-size: .8rem; }
+}
+
+/* 860px — tablet portrait: collapse pill roles, pills left-align */
+@media (max-width: 860px) {
+  .sh-nav-inner    { grid-template-columns: auto 1fr auto; gap: .5rem; }
+  .sh-nav-pills    { justify-self: start; gap: .15rem; }
+  .sh-pill-role    { display: none; }
+  .sh-pill-divider { display: none; }
+  .sh-pill-group   { padding: .2rem .25rem; }
+  .sh-pill         { padding: .38rem .6rem; font-size: .78rem; }
+}
+
+/* 640px — mobile large: hide network badge + subbar */
+@media (max-width: 640px) {
+  .sh-nav-inner  { padding: 0 1rem; gap: .35rem; }
+  .sh-net-badge  { display: none; }
+  .sh-subbar     { display: none; }
+  .sh-pill       { padding: .35rem .55rem; font-size: .76rem; }
+  .sh-brand-name { font-size: .82rem; }
+}
+
+/* 480px — mobile small: tighten further */
+@media (max-width: 480px) {
+  .sh-nav-inner  { padding: 0 .75rem; }
+  .sh-pill       { padding: .3rem .45rem; font-size: .72rem; }
+  .sh-brand-box  { width: 24px; height: 24px; }
+  .sh-brand-name { font-size: .78rem; }
+  .sh-home-icon  { width: 26px; height: 26px; }
+  .nav-wallet    { font-size: .56rem; padding: .26rem .5rem; }
+}
+
+/* 380px — mobile xs: hide brand name to save space */
+@media (max-width: 380px) {
+  .sh-brand-name { display: none; }
+  .sh-nav-inner  { padding: 0 .625rem; }
+}

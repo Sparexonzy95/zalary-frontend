@@ -1,0 +1,434 @@
+/* ═══════════════════════════════════════════════════════════
+   EMPLOYER PAGES — shared responsive stylesheet
+   EmployerDashboard · TemplateDetail · CreateTemplate
+   (RunDetail has its own inline CSS with matching breakpoints)
+═══════════════════════════════════════════════════════════ */
+
+/* ─── page horizontal padding ─── */
+.sh-page.pg,
+.sh-page.db-root {
+  padding-left:  clamp(1rem, 4vw, 2.5rem);
+  padding-right: clamp(1rem, 4vw, 2.5rem);
+  padding-bottom: 0;
+}
+
+/* ─── KILL ALL HORIZONTAL SCROLL ─── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+.sh-page.pg,
+.sh-page.db-root {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+/* every direct grid/flex child must not overflow */
+.pg *, .sh-page * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* ─── TemplateTable (.tt) mobile cards ─── */
+/* The .tt grid is defined in a global CSS file in the project.
+   Below we override it to stack on mobile. */
+@media (max-width: 640px) {
+  /* hide column headers */
+  .tt-head { display: none !important; }
+  /* each row becomes a card */
+  .tt-row {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    grid-template-rows: auto auto !important;
+    gap: .35rem .5rem !important;
+    padding: 14px 16px !important;
+    align-items: center;
+  }
+  /* name spans full width */
+  .tt-c-name {
+    grid-column: 1 / -1 !important;
+    min-width: 0;
+  }
+  /* hide network col on mobile */
+  .tt-c:not(.tt-c-name):not(.tt-c-r) { font-size: .6rem !important; }
+  .tt-name { font-size: .75rem !important; white-space: normal !important; word-break: break-word; }
+  .tt-date { font-size: .6rem !important; }
+  .tt-chip { font-size: .58rem !important; }
+  .tt-arrow { display: flex !important; }
+}
+
+
+
+/* ─── pg-lead ─── */
+.pg-lead {
+  font-family: 'Space Mono', monospace;
+  font-size: .75rem;
+  color: rgba(210,222,255,0.35);
+  line-height: 1.8;
+  letter-spacing: .02em;
+  max-width: 500px;
+  margin-top: .65rem;
+}
+
+/* ─── two-col panel grid (overrides inline style) ─── */
+.two-col {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 1.25rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── stat row spacing ─── */
+.stat-row {
+  margin-bottom: 2rem;
+}
+
+/* ─── db-header base ─── */
+.db-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 1.5rem;
+  padding: 2.5rem 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── db-stats-bar base ─── */
+.db-stats-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(47,107,255,0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(47,107,255,0.03);
+  flex-wrap: wrap;
+}
+
+/* ─── db-sort base ─── */
+.db-sort {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+
+/* ─── timeline ─── */
+.timeline { display: flex; flex-direction: column; }
+.tl-item  { display: flex; align-items: flex-start; gap: 14px; padding: 0 0 18px; }
+.tl-item:last-child { padding-bottom: 0; }
+
+/* ─── footer ─── */
+.emp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 0 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(47,107,255,0.09);
+  position: relative;
+  z-index: 1;
+}
+.emp-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.emp-footer-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: .78rem;
+  color: rgba(210,222,255,0.3);
+  text-decoration: none;
+  letter-spacing: -.01em;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  transition: color .2s;
+}
+.emp-footer-logo:hover { color: rgba(210,222,255,0.6); }
+.emp-footer-divider {
+  width: 1px;
+  height: 13px;
+  background: rgba(47,107,255,0.15);
+}
+.emp-footer-link {
+  font-family: 'Space Mono', monospace;
+  font-size: .52rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(210,222,255,0.2);
+  text-decoration: none;
+  transition: color .2s;
+}
+.emp-footer-link:hover { color: rgba(47,107,255,0.65); }
+.emp-footer-right {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.emp-footer-chain {
+  font-family: 'Space Mono', monospace;
+  font-size: .5rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(47,107,255,0.5);
+  border: 1px solid rgba(47,107,255,0.18);
+  background: rgba(47,107,255,0.04);
+  padding: .2rem .55rem;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.emp-footer-contract {
+  font-family: 'Space Mono', monospace;
+  font-size: .5rem;
+  color: rgba(210,222,255,0.16);
+  letter-spacing: .03em;
+}
+.emp-footer-contract a {
+  color: rgba(47,107,255,0.38);
+  text-decoration: none;
+  transition: color .2s;
+}
+.emp-footer-contract a:hover { color: rgba(47,107,255,0.75); }
+
+/* ══════════════════════════════════════════════════════════
+   TABLET LANDSCAPE — 1024px
+   stat row 2-col, run-steps 3-col, slight heading scale
+══════════════════════════════════════════════════════════ */
+@media (max-width: 1024px) {
+  .pg-h1  { font-size: clamp(2.2rem, 5vw, 4rem) !important; }
+  .db-h1  { font-size: clamp(2.2rem, 5vw, 3.8rem) !important; }
+  .stat-row { grid-template-columns: 1fr 1fr !important; }
+  .run-steps { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   TABLET PORTRAIT — 860px
+   Hero stacks, two-col collapses, db-header single col
+══════════════════════════════════════════════════════════ */
+@media (max-width: 860px) {
+  /* hero stacks vertically */
+  .pg-hero {
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+    padding: 1.75rem 0 1.5rem !important;
+  }
+  .pg-hero-r {
+    padding-top: 0 !important;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start !important;
+  }
+
+  /* dashboard header collapses */
+  .db-header {
+    grid-template-columns: 1fr !important;
+    padding: 1.75rem 0 1.5rem !important;
+  }
+  .db-header-right {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+
+  /* panel two-col collapses */
+  .two-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* footer stacks */
+  .emp-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .875rem;
+    margin-top: 2.5rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE LARGE — 640px
+   Single columns everywhere, tighter padding, dg 1-col
+══════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  /* headings */
+  .pg-h1 { font-size: clamp(1.85rem, 8vw, 2.8rem) !important; }
+  .db-h1 { font-size: clamp(1.85rem, 8vw, 2.8rem) !important; }
+
+  /* stat row stays 2-col but tighter */
+  .stat-row  { grid-template-columns: 1fr 1fr !important; }
+  .stat-cell { padding: 14px 14px 12px !important; }
+  .stat-v    { font-size: 15px !important; }
+  .stat-l    { font-size: 8px !important; margin-top: 5px !important; }
+
+  /* run steps */
+  .run-steps {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 6px !important;
+  }
+  .run-step { padding: 12px 6px 10px !important; gap: 7px !important; }
+  .run-step-label { font-size: 8px !important; letter-spacing: .07em !important; }
+  .run-step-icon { width: 28px !important; height: 28px !important; font-size: 10px !important; }
+
+  /* panels */
+  .panel-head {
+    padding: 13px 14px 11px !important;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .panel-body  { padding: 14px !important; }
+  .panel-foot  { padding: 12px 14px !important; flex-wrap: wrap; }
+  .panel-title { font-size: 12px !important; }
+
+  /* action cards */
+  .action-card-inner {
+    padding: 13px 14px !important;
+    gap: 10px !important;
+    flex-wrap: wrap;
+  }
+  .action-num   { width: 32px !important; height: 32px !important; font-size: 11px !important; }
+  .action-title { font-size: 11px !important; }
+  .action-desc  { font-size: 9px !important; line-height: 1.5 !important; }
+
+  /* data grid — single column */
+  .dg { grid-template-columns: 1fr !important; }
+  .dg-val { font-size: 11px !important; }
+  .dg-val.blue { font-size: 14px !important; }
+
+  /* timeline tighter */
+  .tl-item { gap: 10px; padding-bottom: 14px; }
+  .tl-date { font-size: 10px !important; }
+
+  /* dashboard toolbar stacks */
+  .db-section-head {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .6rem !important;
+  }
+  .db-toolbar {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100%;
+    gap: .6rem !important;
+  }
+  .db-search-box {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  .db-search-input {
+    width: 100% !important;
+    min-width: 0 !important;
+    flex: 1;
+  }
+  .db-filters {
+    flex-wrap: wrap !important;
+    width: 100%;
+    gap: .3rem !important;
+  }
+  .db-sort { flex-wrap: wrap; width: 100%; }
+
+  /* dashboard stats bar wraps */
+  .db-stats-bar { flex-wrap: wrap !important; }
+  .db-stat { padding: .6rem .875rem !important; }
+  .db-stat-val { font-size: 1rem !important; }
+
+  /* nav buttons */
+  .pg-back { font-size: .56rem !important; padding: 7px 11px !important; }
+  .pg-btn  { font-size: .58rem !important; padding: 8px 14px !important; }
+  .chip    { font-size: .56rem !important; padding: 3px 10px !important; }
+
+  /* pg-lead shrinks */
+  .pg-lead { font-size: .7rem !important; max-width: 100% !important; }
+
+  /* footer */
+  .emp-footer-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .35rem;
+  }
+  .emp-footer { margin-top: 2rem; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE SMALL — 480px
+   Tightest layout, run-steps 2-col, max compression
+══════════════════════════════════════════════════════════ */
+@media (max-width: 480px) {
+  /* tightest page padding */
+  .sh-page.pg,
+  .sh-page.db-root {
+    padding-left: .875rem !important;
+    padding-right: .875rem !important;
+  }
+
+  /* headings */
+  .pg-h1 { font-size: clamp(1.65rem, 9vw, 2.4rem) !important; }
+  .db-h1 { font-size: clamp(1.65rem, 9vw, 2.4rem) !important; }
+
+  /* hero tighter */
+  .pg-hero { padding: 1.25rem 0 1.25rem !important; gap: 1rem !important; }
+  .db-header { padding: 1.25rem 0 1rem !important; }
+
+  /* run steps — 2 col on very small screens */
+  .run-steps { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* stat row stays 2-col */
+  .stat-row  { grid-template-columns: 1fr 1fr !important; }
+  .stat-cell { padding: 12px !important; }
+  .stat-v    { font-size: 14px !important; }
+
+  /* panels */
+  .panel-head { padding: 11px 12px 10px !important; flex-wrap: wrap; gap: .4rem; }
+  .panel-body { padding: 12px !important; }
+  .panel-foot { padding: 10px 12px !important; gap: 8px !important; }
+
+  /* action cards */
+  .action-card-inner { padding: 12px !important; gap: 8px !important; }
+  .action-num { width: 30px !important; height: 30px !important; font-size: 10px !important; }
+
+  /* buttons / chips */
+  .pg-back       { font-size: .54rem !important; padding: 6px 10px !important; }
+  .pg-btn        { font-size: .56rem !important; padding: 7px 12px !important; }
+  .chip          { font-size: .54rem !important; padding: 3px 8px !important; }
+  .db-create-btn { font-size: .56rem !important; padding: 7px 12px !important; }
+  .db-filter     { font-size: .54rem !important; padding: .28rem .55rem !important; }
+  .db-sort-sel   { font-size: .56rem !important; }
+
+  /* dashboard */
+  .db-lead { font-size: .66rem !important; line-height: 1.7 !important; }
+  .db-sec-tag { font-size: .56rem !important; }
+
+  /* pg-tag */
+  .pg-tag { font-size: .56rem !important; letter-spacing: .14em !important; }
+
+  /* footer */
+  .emp-footer { padding: 1rem 0 1.5rem; margin-top: 1.75rem; }
+  .emp-footer-logo { font-size: .7rem !important; }
+  .emp-footer-left { gap: .75rem; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   MOBILE XS — 360px
+   Minimal adjustments for very small devices
+══════════════════════════════════════════════════════════ */
+@media (max-width: 360px) {
+  .sh-page.pg,
+  .sh-page.db-root {
+    padding-left: .75rem !important;
+    padding-right: .75rem !important;
+  }
+  .pg-h1 { font-size: clamp(1.5rem, 10vw, 2rem) !important; }
+  .db-h1 { font-size: clamp(1.5rem, 10vw, 2rem) !important; }
+  .run-steps { grid-template-columns: repeat(2, 1fr) !important; gap: 4px !important; }
+  .run-step  { padding: 10px 4px 8px !important; }
+  .stat-row  { grid-template-columns: 1fr 1fr !important; }
+  .stat-cell { padding: 10px !important; }
+  .stat-v    { font-size: 13px !important; }
+  .panel-body { padding: 10px !important; }
+  .dg-cell { padding: 10px 12px !important; }
+  .action-card-inner { padding: 10px !important; }
+}
