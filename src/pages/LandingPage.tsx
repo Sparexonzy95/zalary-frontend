@@ -165,8 +165,8 @@ function useScrollReveal(rootRef:React.RefObject<HTMLElement>){
    COMPONENT
 ═══════════════════════════════════════════════════════════ */
 export default function LandingPage(){
-  const canvasRef=useRef<HTMLCanvasElement>(null);
-  const rootRef  =useRef<HTMLDivElement>(null);
+  const canvasRef=useRef<HTMLCanvasElement>(null!);
+  const rootRef  =useRef<HTMLDivElement>(null!);
   usePayrollAnimation(canvasRef);
   useScrollReveal(rootRef);
 

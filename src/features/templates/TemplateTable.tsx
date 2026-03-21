@@ -24,10 +24,7 @@ function deriveStatus(t: PayrollTemplate): string {
   const isInstant  = String(t.schedule?.type ?? "").toLowerCase() === "instant";
 
   // employee count — mirrors RunDetail's run.employee_count_u32 pattern
-  const empCount =
-    Number((t as any).employee_count_u32 ?? (t as any).employee_count ?? 0) ||
-    (Array.isArray((t as any).employees) ? (t as any).employees.length : 0);
-
+  
   // remaining runs from schedule metadata if available
   const remaining  = Number((t as any).remaining_runs ?? (t as any).future_count ?? -1);
 
