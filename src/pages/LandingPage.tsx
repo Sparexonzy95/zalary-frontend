@@ -188,7 +188,7 @@ export default function LandingPage(){
       </nav>
       <div className="lp-nav-r">
         <div className="lp-net"><div className="lp-ndot"/>Base Sepolia</div>
-        <Link to="/employer" className="lp-nav-btn">Launch App</Link>
+        <Link to="/app" className="lp-nav-btn">Launch App</Link>
       </div>
     </header>
 
@@ -215,7 +215,7 @@ export default function LandingPage(){
           unreadable to every party except the authorized recipient.
         </p>
         <div className="lp-ctas">
-          <Link to="/employer" className="lp-btn-p">Launch App <span className="lp-ar">→</span></Link>
+          <Link to="/app" className="lp-btn-p">Launch App <span className="lp-ar">→</span></Link>
           <a href="#how" className="lp-btn-g">How It Works <span className="lp-ar">↓</span></a>
         </div>
         <div className="lp-stats">
@@ -519,7 +519,7 @@ export default function LandingPage(){
         broadcast, every claim verified by TEE attestation. No plaintext. No compromise.
       </p>
       <div className="lp-cta-btns">
-        <Link to="/employer" className="lp-cta-main">Launch App <span className="lp-ar">→</span></Link>
+        <Link to="/app" className="lp-cta-main">Launch App <span className="lp-ar">→</span></Link>
         <a href="#how" className="lp-cta-ghost-btn">How It Works <span className="lp-ar">↓</span></a>
       </div>
     </section>
@@ -545,7 +545,7 @@ export default function LandingPage(){
           <div className="lp-ft-col-t">Product</div>
           <a href="#employer">For Employers</a><a href="#employee">For Employees</a>
           <a href="#how">How It Works</a><a href="#faq">FAQ</a>
-          <Link to="/employer">Launch App</Link>
+          <Link to="/app">Launch App</Link>
         </div>
         <div className="lp-ft-col">
           <div className="lp-ft-col-t">Technical</div>
