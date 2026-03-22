@@ -105,15 +105,17 @@ export function validateTemplateForm(state: TemplateFormState): FieldErrors {
   }
 
   if (s.frequency === "weekly") {
-    if (typeof s.weeklyDay !== "number") e.weeklyDay = "Select a day of the week.";
-  }
-
-  if (s.frequency === "monthly") {
-    if (!s.monthlyDay || s.monthlyDay < 1 || s.monthlyDay > 28) {
-      e.monthlyDay = "Choose a day between 1 and 28.";
+    if (typeof s.weeklyDay !== "number" || s.weeklyDay < 0 || s.weeklyDay > 6) {
+      e.weeklyDay = "Select a day of the week.";
     }
   }
 
+  if (s.frequency === "monthly") {
+    const day = Number(s.monthlyDay ?? 0);
+    if (!day || day < 1 || day > 28) {
+      e.monthlyDay = "Choose a day between 1 and 28.";
+    }
+  }
   if (s.stopMode === "after_cycles") {
     const c = Number(s.cycles ?? 0);
     if (!Number.isFinite(c) || c <= 0) e.cycles = "Enter a valid number of payroll cycles.";

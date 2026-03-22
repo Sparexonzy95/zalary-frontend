@@ -293,7 +293,18 @@ export default function ScheduleBuilder({ value, errors, onChange }: Props) {
                   key={opt.value}
                   type="button"
                   className={`freq-card${value.frequency === opt.value ? " selected" : ""}`}
-                  onClick={() => set({ frequency: opt.value as ScheduleFormState["frequency"] })}
+                 onClick={() => {
+  const patch: Partial<ScheduleFormState> = {
+    frequency: opt.value as ScheduleFormState["frequency"],
+  };
+  if (opt.value === "weekly" && typeof value.weeklyDay !== "number") {
+    patch.weeklyDay = 0; // Default Monday
+  }
+  if (opt.value === "monthly" && (!value.monthlyDay || value.monthlyDay < 1)) {
+    patch.monthlyDay = 10; // Default 10th of month
+  }
+  set(patch);
+}}
                 >
                   <div className="freq-icon">
                     <FreqIcon type={opt.value} />
