@@ -64,9 +64,10 @@ export default function CreateTemplate() {
         <TemplateForm
           chainId={env.CHAIN_DB_ID}
           submitting={create.isPending}
-          onSubmit={async (payload) => {
-            try {
-              const created = await create.mutateAsync({
+         onSubmit={async (payload) => {
+  console.log("SUBMIT PAYLOAD:", JSON.stringify(payload, null, 2));
+  try {
+    const created = await create.mutateAsync({
                 ...(payload as any),
                 employer_address: wallet.toLowerCase(),
               });
