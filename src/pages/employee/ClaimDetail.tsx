@@ -265,11 +265,22 @@ const [stateRestored,          setStateRestored]             = React.useState(fa
 
 // Only restore withdrawal state if claim is truly finalized
 // For any other status, wipe stale localStorage so new claims start clean
+
+  const setWithdrawId            = (v: number | null)    => { setWithdrawIdRaw(v);            saveState({ withdrawId: v }); };
+  const setWithdrawPending       = (v: any)              => { setWithdrawPendingRaw(v);        saveState({ withdrawPending: v }); };
+  const setWithdrawUiStatus      = (v: WithdrawUiStatus) => { setWithdrawUiStatusRaw(v);       saveState({ withdrawUiStatus: v }); };
+  const setWithdrawRequestTxHash = (v: string | null)    => { setWithdrawRequestTxHashRaw(v);  saveState({ withdrawRequestTxHash: v }); };
+  const setWithdrawFinalizeTxHash= (v: string | null)    => { setWithdrawFinalizeTxHashRaw(v); saveState({ withdrawFinalizeTxHash: v }); };
+
+  const claimQ = useClaim(claimId);
+  const claim  = claimQ.data;
+
+  // Restore withdrawal state ONLY if claim is finalized_success
+// Otherwise clear stale localStorage so new claims start clean
 React.useEffect(() => {
   if (stateRestored) return;
-  const claim = claimQ.data;
-  if (!claim) return;
-  if (claim.status === "finalized_success") {
+  if (!claimQ.data) return;
+  if (claimQ.data.status === "finalized_success") {
     const saved = loadSaved();
     if (saved) {
       if (saved.withdrawId)             setWithdrawIdRaw(saved.withdrawId);
@@ -283,15 +294,6 @@ React.useEffect(() => {
   }
   setStateRestored(true);
 }, [claimQ.data, stateRestored]);
-
-  const setWithdrawId            = (v: number | null)    => { setWithdrawIdRaw(v);            saveState({ withdrawId: v }); };
-  const setWithdrawPending       = (v: any)              => { setWithdrawPendingRaw(v);        saveState({ withdrawPending: v }); };
-  const setWithdrawUiStatus      = (v: WithdrawUiStatus) => { setWithdrawUiStatusRaw(v);       saveState({ withdrawUiStatus: v }); };
-  const setWithdrawRequestTxHash = (v: string | null)    => { setWithdrawRequestTxHashRaw(v);  saveState({ withdrawRequestTxHash: v }); };
-  const setWithdrawFinalizeTxHash= (v: string | null)    => { setWithdrawFinalizeTxHashRaw(v); saveState({ withdrawFinalizeTxHash: v }); };
-
-  const claimQ = useClaim(claimId);
-  const claim  = claimQ.data;
 
   const requestClaim        = useRequestClaim(claimId, claim?.employee_address);
   const syncPending         = useSyncPending(claimId, claim?.employee_address);
