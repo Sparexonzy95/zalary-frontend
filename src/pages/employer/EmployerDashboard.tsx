@@ -12,13 +12,7 @@ type FilterStatus = "all" | "active" | "draft" | "failed" | "completed";
 type SortKey = "date" | "name" | "employees" | "status";
 
 function deriveStatus(t: any): string {
-  const raw       = String(t.status || "").toLowerCase();
-  const isAct     = raw === "active";
-  const isInstant = String(t.schedule?.type ?? "").toLowerCase() === "instant";
-  const remaining = Number(t.remaining_runs ?? t.future_count ?? -1);
-  const hasRun    = Boolean(t.last_run_at) || remaining === 0;
-  const done      = isAct && ((isInstant && hasRun) || (remaining === 0 && hasRun));
-  return done ? "completed" : raw;
+  return String(t.status || "").toLowerCase();
 }
 
 function StatBlock({ val, unit, label }: { val: string | number; unit?: string; label: string }) {

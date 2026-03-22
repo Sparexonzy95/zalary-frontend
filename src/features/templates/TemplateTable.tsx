@@ -19,24 +19,7 @@ function schedule(t: PayrollTemplate) {
 
 /* ── Derive completed status — same logic as TemplateDetail ── */
 function deriveStatus(t: PayrollTemplate): string {
-  const raw        = String(t.status || "").toLowerCase();
-  const isActive   = raw === "active";
-  const isInstant  = String(t.schedule?.type ?? "").toLowerCase() === "instant";
-
-  // employee count — mirrors RunDetail's run.employee_count_u32 pattern
-  
-  // remaining runs from schedule metadata if available
-  const remaining  = Number((t as any).remaining_runs ?? (t as any).future_count ?? -1);
-
-  const hasRun     = Boolean((t as any).last_run_at) || remaining === 0;
-
-  const isCompleted =
-    isActive && (
-      (isInstant && hasRun) ||
-      (remaining === 0 && hasRun)
-    );
-
-  return isCompleted ? "completed" : t.status;
+  return String(t.status || "").toLowerCase();
 }
 
 /* ── Employee count — same pattern as RunDetail ── */

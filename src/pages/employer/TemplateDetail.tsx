@@ -366,13 +366,8 @@ export default function TemplateDetail() {
 
   // Derive "completed" — backend keeps status "active" even after all runs done.
   // A template is completed when it's instant+run exists, OR remaining runs hit 0 with runs present.
-  const remainingRuns  = Number(preview?.future_count ?? -1);
-  const isCompleted    =
-    isActive(t?.status) && (
-      (isInstant && hasExistingRun) ||
-      (remainingRuns === 0 && hasExistingRun)
-    );
-  const derivedStatus  = isCompleted ? "completed" : t?.status;
+ const isCompleted   = t?.status === "completed";
+ const derivedStatus = t?.status;
 
   async function handleActivate() {
     try {
