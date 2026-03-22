@@ -84,14 +84,22 @@ export function useCreateClaim() {
   const qc = useQueryClient();
 
   return useMutation({
-    mutationFn: async (payload: CreateClaimPayload): Promise<ClaimRecord> => {
-      try {
-        const res = await api.post("/api/inco/claims/", payload);
-        return res.data;
-      } catch (e) {
-        throw toApiError(e);
-      }
-    },
+    mutationFn: async () => {
+  try {
+    const res = await api.post(`/api/inco/claims/${claimId}/sync_pending/`, {});
+    // 202 means not ready yet — treat as retriable, not an error
+    if (res.status === 202) {
+      throw { status: 202, message: res.data?.detail || "Transaction still confirming. Please wait and try again." };
+    }
+    if (!res.data?.confirmed) {
+      throw { status: 202, message: res.data?.detail || "Not ready yet. Please try again in a few seconds." };
+    }
+    return res.data as SyncPendingResponse;
+  } catch (e: any) {
+    if (e?.status === 202) throw e;
+    throw toApiError(e);
+  }
+},
     onSuccess: async (_data, vars) => {
       await qc.invalidateQueries({
         queryKey: ["employeeClaimables", vars.employee_address.toLowerCase()],
