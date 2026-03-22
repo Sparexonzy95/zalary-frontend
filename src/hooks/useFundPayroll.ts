@@ -153,8 +153,11 @@ export function useFundPayroll(runId: string | number) {
             nonce: approveNonce,
           });
 
-          const approveTxHash = await walletClient.writeContract(approveReq);
-          await publicClient.waitForTransactionReceipt({ hash: approveTxHash });
+         const approveTxHash = await walletClient.writeContract(approveReq);
+         await publicClient.waitForTransactionReceipt({ hash: approveTxHash });
+
+         // Wait for chain state to reflect the approval before simulating deposit
+        await new Promise(resolve => setTimeout(resolve, 2000));
         }
 
         const depositNonce = await publicClient.getTransactionCount({
