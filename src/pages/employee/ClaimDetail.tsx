@@ -217,8 +217,24 @@ function normalizeSigs(sigs: string[], label: string): `0x${string}`[] {
 
 export default function ClaimDetail() {
   useStyles();
-  const { claimId = "" } = useParams();
+  const { claimId } = useParams();
   const toast = useToast();
+
+  // Guard — don't proceed if claimId is missing or invalid
+  if (!claimId || claimId === "undefined") {
+    return (
+      <div className="sh-page pg">
+        <div className="pg-bg" />
+        <div className="panel">
+          <div className="panel-body">
+            <p style={{ color:"rgba(252,165,165,0.85)", fontSize:12, margin:0 }}>
+              Invalid claim ID. Please go back and try again.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const { wallet: contextWallet, connect } = useWallet();
   const [connectedWallet, setConnectedWallet] = React.useState("");

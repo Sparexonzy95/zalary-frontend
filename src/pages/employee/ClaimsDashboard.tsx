@@ -272,17 +272,30 @@ export default function ClaimsDashboard() {
     catch (e:any) { toast.push({ kind:"error", title:"Wallet connection failed", message:e?.message??"Please try again." }); }
   }
 
-  async function handleClaim(runId:number, existingClaimId?:number|null) {
-    try {
-      if (existingClaimId) { nav(`/employee/claims/${existingClaimId}`); return; }
-      if (!wallet) { await connect(); }
-      const claim = await createClaim.mutateAsync({ run:runId, employee_address:wallet });
-      startPolling();
-      nav(`/employee/claims/${claim.id}`);
-    } catch (e:any) {
-      toast.push({ kind:"error", title:"Could not open claim", message:e?.message??"Please try again." });
+ async function handleClaim(runId:number, existingClaimId?:number|null) {
+  try {
+    if (existingClaimId) {
+      nav(`/employee/claims/${existingClaimId}`);
+      return;
     }
+    if (!wallet) {
+      await connect();
+      return; // let user reconnect first
+    }
+    const claim = await createClaim.mutateAsync({
+      run: runId,
+      employee_address: wallet,
+    });
+    if (!claim?.id) {
+      throw new Error("Claim was created but returned no ID. Please refresh and try again.");
+    }
+    startPolling();
+    nav(`/employee/claims/${claim.id}`);
+  } catch (e:any) {
+    const msg = e?.message ?? e?.detail ?? "Please try again.";
+    toast.push({ kind:"error", title:"Could not open claim", message:msg });
   }
+}
 
   const claimables       = (claimablesQ.data?.claimables ?? []) as ClaimableItem[];
   const availableClaims  = claimables.filter(c => bucketClaim(c) === "available");
