@@ -246,20 +246,43 @@ export default function ClaimDetail() {
   const [aclDenied, setAclDenied] = React.useState(false);
 
   /* withdrawal state */
-  const WITHDRAW_KEY = `withdraw_state_claim_${claimId}`;
-  function loadSaved() {
-    try { const r = localStorage.getItem(WITHDRAW_KEY); return r ? JSON.parse(r) : null; }
-    catch { return null; }
+ const WITHDRAW_KEY = `withdraw_state_claim_${claimId}`;
+
+function loadSaved() {
+  try { const r = localStorage.getItem(WITHDRAW_KEY); return r ? JSON.parse(r) : null; }
+  catch { return null; }
+}
+function saveState(patch: object) {
+  try { localStorage.setItem(WITHDRAW_KEY, JSON.stringify({ ...loadSaved(), ...patch })); } catch {}
+}
+
+const [withdrawId,             setWithdrawIdRaw]             = React.useState<number | null>(null);
+const [withdrawPending,        setWithdrawPendingRaw]        = React.useState<any>(null);
+const [withdrawUiStatus,       setWithdrawUiStatusRaw]       = React.useState<WithdrawUiStatus>("not_started");
+const [withdrawRequestTxHash,  setWithdrawRequestTxHashRaw]  = React.useState<string | null>(null);
+const [withdrawFinalizeTxHash, setWithdrawFinalizeTxHashRaw] = React.useState<string | null>(null);
+const [stateRestored,          setStateRestored]             = React.useState(false);
+
+// Only restore withdrawal state if claim is truly finalized
+// For any other status, wipe stale localStorage so new claims start clean
+React.useEffect(() => {
+  if (stateRestored) return;
+  const claim = claimQ.data;
+  if (!claim) return;
+  if (claim.status === "finalized_success") {
+    const saved = loadSaved();
+    if (saved) {
+      if (saved.withdrawId)             setWithdrawIdRaw(saved.withdrawId);
+      if (saved.withdrawPending)        setWithdrawPendingRaw(saved.withdrawPending);
+      if (saved.withdrawUiStatus)       setWithdrawUiStatusRaw(saved.withdrawUiStatus);
+      if (saved.withdrawRequestTxHash)  setWithdrawRequestTxHashRaw(saved.withdrawRequestTxHash);
+      if (saved.withdrawFinalizeTxHash) setWithdrawFinalizeTxHashRaw(saved.withdrawFinalizeTxHash);
+    }
+  } else {
+    localStorage.removeItem(WITHDRAW_KEY);
   }
-  function saveState(patch: object) {
-    try { localStorage.setItem(WITHDRAW_KEY, JSON.stringify({ ...loadSaved(), ...patch })); } catch {}
-  }
-  const _s = loadSaved();
-  const [withdrawId,            setWithdrawIdRaw]            = React.useState<number | null>(_s?.withdrawId ?? null);
-  const [withdrawPending,       setWithdrawPendingRaw]       = React.useState<any>(_s?.withdrawPending ?? null);
-  const [withdrawUiStatus,      setWithdrawUiStatusRaw]      = React.useState<WithdrawUiStatus>(_s?.withdrawUiStatus ?? "not_started");
-  const [withdrawRequestTxHash, setWithdrawRequestTxHashRaw] = React.useState<string | null>(_s?.withdrawRequestTxHash ?? null);
-  const [withdrawFinalizeTxHash,setWithdrawFinalizeTxHashRaw]= React.useState<string | null>(_s?.withdrawFinalizeTxHash ?? null);
+  setStateRestored(true);
+}, [claimQ.data, stateRestored]);
 
   const setWithdrawId            = (v: number | null)    => { setWithdrawIdRaw(v);            saveState({ withdrawId: v }); };
   const setWithdrawPending       = (v: any)              => { setWithdrawPendingRaw(v);        saveState({ withdrawPending: v }); };
