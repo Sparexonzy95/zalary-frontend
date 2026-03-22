@@ -117,7 +117,7 @@ export function useClaim(claimId?: string) {
       if (!claim) return false;
 
       const status = String(claim.status || "").toLowerCase();
-      return ["request_broadcasted", "finalize_broadcasted"].includes(status) ? 3000 : false;
+     return ["request_broadcasted", "pending_ready", "finalize_broadcasted"].includes(status) ? 1500 : false;
     },
     refetchIntervalInBackground: true,
   });

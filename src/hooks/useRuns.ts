@@ -69,12 +69,14 @@ export function useRun(runId: string | number) {
 
       const pendingStatuses = [
         "create_broadcasted",
-        "alloc_uploading",
-        "alloc_finalizing",
-        "funding",
-      ];
-
-      return pendingStatuses.includes(status) ? 3000 : false;
+        "created_confirmed",
+       "alloc_uploading",
+       "alloc_uploaded",
+       "alloc_finalizing",
+       "funding",
+       "funded",
+];
+return pendingStatuses.includes(status) ? 1500 : false;
     },
     refetchIntervalInBackground: true,
   });
