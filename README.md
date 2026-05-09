@@ -137,21 +137,13 @@ npm run preview
 
 ## Live Demo Placeholder
 
-Live demo: `TODO: add deployed frontend URL`
+Live demo: `https://zalary-frontend-fhe.vercel.app/`
 
 ## Demo Video Placeholder
 
-Demo video: `TODO: add demo video URL`
+Demo video: `TODO: https://youtu.be/G8uEvxtlrso`
 
-## Screenshots Section
 
-Recommended screenshots are listed in [screenshots/README.md](screenshots/README.md).
-
-## Public Submission Boundary
-
-This is a frontend-only repository. The smart contract implementation is maintained separately. Internal orchestration/state services used for development demos are not included here and should not be reviewed as required public components.
-
-This project is a Builder Track demonstration and does not claim production readiness.
 
 ## What Judges Should Review
 
