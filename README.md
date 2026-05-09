@@ -141,7 +141,7 @@ Live demo: `https://zalary-frontend-fhe.vercel.app/`
 
 ## Demo Video Placeholder
 
-Demo video: `TODO: https://youtu.be/G8uEvxtlrso`
+Demo video: ` https://youtu.be/G8uEvxtlrso`
 
 
 
