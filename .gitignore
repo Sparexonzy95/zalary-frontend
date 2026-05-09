@@ -12,3 +12,6 @@ CREATE_PROJECT_COMMANDS.md
 fix-no-session-branch.cjs
 fix-save-company-button.cjs
 repair-employer-onboarding.cjs
+
+.vercel
+.env*.local
