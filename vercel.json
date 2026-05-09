@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/api/cofhe/:path*",
+      "destination": "http://104.251.216.173/api/cofhe/:path*"
+    },
+    {
+      "source": "/api/v1/onboarding/:path*",
+      "destination": "http://104.251.216.173/api/v1/onboarding/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
