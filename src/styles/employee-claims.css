@@ -1,0 +1,1000 @@
+.dashboard-shell.dashboard-shell-employee {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.dashboard-shell.dashboard-shell-employee > * {
+  min-width: 0;
+}
+
+.dashboard-shell.dashboard-shell-employee [data-tour="employee-claims-card"] {
+  width: 100%;
+  min-width: 0;
+}
+
+.dashboard-shell.dashboard-shell-employee .card.employee-claims-card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.dashboard-shell.dashboard-shell-employee .card.employee-claims-card::after {
+  pointer-events: none;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1rem;
+  margin: 0 0 0.95rem;
+  padding: 0 0 0.9rem;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  box-shadow: none;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-title-block {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head .btn,
+.dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head button {
+  width: auto;
+  align-self: start;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-card > .stack,
+.dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head + .stack {
+  min-width: 0;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-count,
+.dashboard-shell.dashboard-shell-employee .employee-claims-message {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.dashboard-shell.dashboard-shell-employee .empty-state {
+  min-width: 0;
+}
+
+.dashboard-shell.dashboard-shell-employee .empty-state-icon {
+  font-size: 0;
+}
+
+.dashboard-shell.dashboard-shell-employee .empty-state-icon::before {
+  content: "-";
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th,
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td {
+  vertical-align: middle;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(1),
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(1) {
+  width: 24%;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(2),
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(2) {
+  width: 31%;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(3),
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(3) {
+  width: 17%;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(4),
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(4) {
+  width: 12%;
+  text-align: center;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th[aria-label="Action"],
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(5) {
+  width: 16%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td strong {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claim-created {
+  white-space: nowrap;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table .btn {
+  min-height: 2.3rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.68rem;
+  white-space: nowrap;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claim-history-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claim-history-link:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-mobile-list {
+  display: none;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.875rem;
+  margin-top: 0.875rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-pagination-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-page-btn:hover:not(:disabled) {
+  border-color: var(--z-accent);
+  color: var(--z-accent);
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-page-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dashboard-shell.dashboard-shell-employee .employee-claims-page-count {
+  min-width: 3rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  place-items: initial;
+  align-items: stretch;
+  min-width: 0;
+  min-height: 12rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section.is-complete {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section.is-locked {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section.is-busy {
+  border-color: rgba(254, 158, 21, 0.28);
+  background: rgba(254, 158, 21, 0.055);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-progress-note {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 0.78rem 0.85rem;
+  border: 1px solid rgba(254, 158, 21, 0.24);
+  border-radius: 8px;
+  background: rgba(254, 158, 21, 0.07);
+  color: inherit;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-progress-spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-top-color: var(--z-accent);
+  border-radius: 999px;
+  animation: claimDetailSpin 0.82s linear infinite;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-progress-note strong {
+  display: block;
+  margin: 0;
+  color: inherit;
+  font-size: 0.84rem;
+  line-height: 1.2;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-progress-note p {
+  margin: 0.18rem 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+@keyframes claimDetailSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-step-copy {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+  gap: 0.42rem;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-step-kicker {
+  color: var(--muted);
+  font-family: var(--z-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-step-copy h4 {
+  margin: 0;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: inherit;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-step-copy p {
+  max-width: 26rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-step-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  width: fit-content;
+  min-height: 1.8rem;
+  margin-top: 0.15rem;
+  padding: 0.34rem 0.58rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #d7d9dc;
+  font-size: 0.66rem;
+  line-height: 1;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-step-status.is-complete {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f1f2f3;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-step-status svg {
+  flex: 0 0 auto;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section-action {
+  align-self: end;
+  justify-content: stretch;
+  margin-top: 1rem;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section-action .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 2.65rem;
+  border-radius: 8px;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section.is-complete .btn:disabled {
+  opacity: 1;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.875rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--border);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card > .claim-detail-simple-activity {
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-head svg {
+  flex: 0 0 auto;
+  color: var(--muted);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-head h4 {
+  margin: 0;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: inherit;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-simple-activity {
+  display: grid;
+  gap: 0;
+  overflow: visible;
+  border-radius: 8px;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-simple-activity-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.45rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  min-height: 4rem;
+  padding: 0.78rem 0.85rem;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-simple-activity-row:last-child {
+  border-bottom: 0;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-simple-activity-row:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: calc(50% + 0.55rem);
+  bottom: -1rem;
+  left: 1.56rem;
+  width: 1px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.32) 0 4px,
+    transparent 4px 9px
+  );
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-marker {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 999px;
+  background: #eef0f1;
+  box-shadow: 0 0 0 0.38rem rgba(255, 255, 255, 0.06);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.25rem;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-activity-copy span {
+  color: var(--muted);
+  font-family: var(--z-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-activity-copy strong {
+  color: inherit;
+  font-size: 0.9rem;
+  font-weight: inherit;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  color: #f4f5f5;
+  font-family: var(--z-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-link svg {
+  flex: 0 0 auto;
+  color: currentColor;
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-link:hover {
+  color: var(--z-accent);
+}
+
+.dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-simple-empty {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  border: 0;
+  color: var(--muted);
+}
+
+@media (min-width: 1180px) {
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(1),
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(1) {
+    width: 25%;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(2),
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(2) {
+    width: 32%;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(5),
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(5) {
+    width: 15%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th,
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table .btn {
+    min-height: 2.2rem;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.64rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(3),
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(3) {
+    display: none;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(1),
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(1) {
+    width: 30%;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(2),
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(2) {
+    width: 36%;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(4),
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(4) {
+    width: 16%;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th:nth-child(5),
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td:nth-child(5) {
+    width: 18%;
+  }
+}
+
+@media (max-width: 760px) {
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head {
+    gap: 0.75rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table th,
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table td {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table .btn {
+    min-height: 2.15rem;
+    padding: 0.48rem 0.58rem;
+    font-size: 0.6rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-history-link {
+    font-size: 0.62rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table .employee-claim-status .status {
+    min-width: 4.85rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .dashboard-shell.dashboard-shell-employee {
+    gap: 0.85rem;
+    padding-left: 0.875rem;
+    padding-right: 0.875rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-header-card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-header-card h1 {
+    font-size: 1.45rem;
+    line-height: 1.1;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .card.employee-claims-card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .card.employee-claims-card::after {
+    display: none;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head {
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head h3 {
+    font-size: 1rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head .btn,
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head button {
+    min-height: 2rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.66rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card > .stack,
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head + .stack {
+    gap: 0.85rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-count {
+    font-size: 0.76rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section {
+    min-height: 12rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-desktop-table {
+    display: none !important;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-mobile-list {
+    display: grid;
+    gap: 0.65rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-card {
+    display: grid;
+    grid-template-columns: 3.65rem minmax(0, 1fr) auto;
+    align-items: center;
+    min-width: 0;
+    gap: 0.95rem;
+    min-height: 6.25rem;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.045);
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.65rem;
+    height: 3.65rem;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.04);
+    color: #7d8490;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main {
+    display: grid;
+    gap: 0.28rem;
+    min-width: 0;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main > div {
+    min-width: 0;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main strong {
+    display: block;
+    min-width: 0;
+    color: inherit;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-company {
+    display: block;
+    min-width: 0;
+    color: var(--muted);
+    font-size: 0.7rem;
+    line-height: 1.35;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status {
+    --claim-status-border: rgba(255, 255, 255, 0.16);
+    --claim-status-text: #d7d9dc;
+    --claim-status-fill: rgba(255, 255, 255, 0.04);
+    justify-self: start;
+    width: fit-content;
+    margin-top: 0.1rem;
+    white-space: nowrap;
+    font-size: 0.64rem;
+    line-height: 1;
+    padding: 0.34rem 0.58rem;
+    gap: 0;
+    border-color: var(--claim-status-border);
+    background: var(--claim-status-fill);
+    color: var(--claim-status-text);
+    text-transform: capitalize;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status::before {
+    display: none;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status-claim {
+    --claim-status-border: rgba(254, 158, 21, 0.76);
+    --claim-status-text: #ffe2b8;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status-claimed,
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status-completed,
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status-complete,
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status-finalized {
+    --claim-status-border: rgba(255, 255, 255, 0.2);
+    --claim-status-text: #b9bdc2;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status-failed {
+    --claim-status-border: rgba(255, 95, 87, 0.76);
+    --claim-status-text: #ffe0de;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    gap: 0.55rem;
+    width: auto;
+    min-width: 4.7rem;
+    min-height: 2.75rem;
+    max-width: 100%;
+    padding: 0.45rem 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-action svg {
+    color: #fff;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-action-claim svg {
+    color: var(--z-accent);
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-action-link {
+    gap: 0.35rem;
+    color: inherit;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-action:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-pagination {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 0.65rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-pagination-controls {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px) {
+  .dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow {
+    gap: 0.75rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-step-copy p {
+    font-size: 0.78rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-activity-card {
+    gap: 0.85rem;
+    padding-top: 0.85rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-simple-activity-row {
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    row-gap: 0.72rem;
+    min-height: 0;
+    padding: 0.9rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-activity-card .claim-detail-simple-activity-row:not(:last-child)::before {
+    left: 1.5rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-activity-link {
+    grid-column: 2;
+    justify-self: start;
+    width: fit-content;
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1100px) {
+  .dashboard-shell.dashboard-shell-employee .employee-claims-pagination {
+    align-items: center;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-page-btn {
+    width: 1.9rem;
+    min-width: 1.9rem;
+    height: 1.9rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .dashboard-shell.dashboard-shell-employee {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-header-card h1 {
+    font-size: 1.32rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-card {
+    grid-template-columns: 3.35rem minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    min-height: 5.85rem;
+    padding: 0.85rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-icon {
+    width: 3.35rem;
+    height: 3.35rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .claim-detail-two-step-flow .claim-detail-flow-section {
+    padding: 0.9rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .dashboard-shell.dashboard-shell-employee {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.55rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head .btn,
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head button {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+    font-size: 0.62rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main {
+    grid-template-columns: 1fr;
+    gap: 0.24rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-card {
+    grid-template-columns: 2.9rem minmax(0, 1fr) auto;
+    grid-template-areas: none;
+    align-items: center;
+    gap: 0.62rem;
+    min-height: 5.35rem;
+    padding: 0.78rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-icon {
+    width: 2.9rem;
+    height: 2.9rem;
+    border-radius: 0.82rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main {
+    min-width: 0;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main strong {
+    font-size: 0.82rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-company {
+    font-size: 0.66rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-main .status {
+    font-size: 0.6rem;
+    padding: 0.28rem 0.48rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-action {
+    justify-self: end;
+    width: auto;
+    min-width: 3.8rem;
+    min-height: 2.35rem;
+    gap: 0.38rem;
+    border: 0;
+    background: transparent;
+    font-size: 0.66rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head .btn,
+  .dashboard-shell.dashboard-shell-employee .employee-claims-card .card-head button {
+    width: 100%;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-card {
+    grid-template-columns: 2.55rem minmax(0, 1fr) auto;
+    gap: 0.5rem;
+    padding: 0.7rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-icon {
+    width: 2.55rem;
+    height: 2.55rem;
+    border-radius: 0.72rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-action {
+    min-width: 3.35rem;
+    font-size: 0.62rem;
+  }
+
+  .dashboard-shell.dashboard-shell-employee .employee-claim-mobile-action svg {
+    width: 13px;
+    height: 13px;
+  }
+}

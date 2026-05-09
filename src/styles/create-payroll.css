@@ -1,0 +1,1313 @@
+/* =========================================================
+   Create Payroll — CoFHE/Zalary structure fix
+   ========================================================= */
+
+.create-payroll-page {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.create-payroll-page-header {
+  min-height: 84px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.create-payroll-page-header > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.create-payroll-page-header h1 {
+  margin: 0;
+  line-height: 1;
+}
+
+.create-payroll-form {
+  width: 100%;
+}
+
+.create-payroll-form-redesigned {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.create-payroll-main-card {
+  width: 100%;
+  overflow: hidden;
+}
+
+.create-payroll-card-body {
+  width: 100%;
+}
+
+.create-payroll-step-content {
+  position: relative;
+  width: 100%;
+  min-height: 520px;
+}
+
+/* =========================================================
+   Wizard phase visibility
+   ========================================================= */
+
+.create-payroll-phase {
+  display: none;
+}
+
+.create-payroll-form-redesigned[data-phase="0"] .create-payroll-details-card {
+  display: block;
+}
+
+.create-payroll-form-redesigned[data-phase="1"] .create-payroll-schedule-card {
+  display: block;
+}
+
+.create-payroll-form-redesigned[data-phase="2"] .create-payroll-review-card {
+  display: block;
+}
+
+/* =========================================================
+   Section header
+   ========================================================= */
+
+.create-payroll-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.05rem;
+  margin-bottom: 1.35rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.create-payroll-section-head span,
+.page-header-eyebrow {
+  display: block;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--z-dim, rgba(255, 255, 255, 0.48));
+  margin-bottom: 0.55rem;
+}
+
+.create-payroll-section-head h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.18;
+}
+
+.create-payroll-section-head p {
+  margin: 0.45rem 0 0;
+  max-width: 620px;
+}
+
+/* =========================================================
+   Payroll basics
+   ========================================================= */
+
+.create-payroll-basics-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 2.1rem;
+}
+
+.create-payroll-basics-grid input {
+  width: 100%;
+  height: 48px;
+}
+
+/* =========================================================
+   Employee heading and buttons
+   ========================================================= */
+
+.create-payroll-merged-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding-top: 1.1rem;
+  margin-bottom: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.create-payroll-merged-section-head h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  line-height: 1.15;
+}
+
+.create-payroll-merged-section-head p {
+  margin: 0;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.76rem;
+  color: var(--z-dim, rgba(255, 255, 255, 0.48));
+}
+
+.create-payroll-employee-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.create-payroll-csv-input {
+  display: none;
+}
+
+.create-payroll-upload-csv-btn,
+.create-payroll-add-manual-btn {
+  min-height: 42px;
+  padding-inline: 1.1rem !important;
+  border-radius: 999px !important;
+  white-space: nowrap;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+}
+
+.create-payroll-add-manual-btn {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #fff !important;
+}
+
+/* =========================================================
+   CSV hint
+   ========================================================= */
+
+.create-payroll-csv-hint {
+  width: 100%;
+  min-height: 42px;
+  border: 1px dashed rgba(255, 255, 255, 0.11);
+  border-radius: 9px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.75rem;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.74rem;
+  color: var(--z-dim, rgba(255, 255, 255, 0.48));
+  display: flex;
+  align-items: center;
+}
+
+.create-payroll-csv-hint strong {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* =========================================================
+   Employee rows
+   ========================================================= */
+
+.create-payroll-employee-stack {
+  gap: 1rem;
+}
+
+.create-payroll-employee-note {
+  margin: 0 0 0.2rem;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.76rem;
+  line-height: 1.6;
+}
+
+.create-payroll-employee-row {
+  padding: 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.create-payroll-employee-row-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+}
+
+.employee-row-num {
+  font-family: var(--z-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.create-payroll-remove-employee {
+  min-height: 32px !important;
+  padding-inline: 0.65rem !important;
+  opacity: 0.72;
+}
+
+.create-payroll-employee-grid {
+  display: grid;
+  grid-template-columns:
+    minmax(260px, 1.35fr)
+    minmax(160px, 0.8fr)
+    minmax(220px, 1fr)
+    minmax(140px, 0.55fr);
+  gap: 0.8rem;
+  align-items: end;
+}
+
+.create-payroll-employee-grid label,
+.create-payroll-basics-grid label,
+.payroll-send-grid label {
+  font-size: 0.62rem !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.create-payroll-employee-grid input {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+}
+
+/* =========================================================
+   Schedule phase
+   ========================================================= */
+
+.create-payroll-form-redesigned[data-phase="1"] .create-payroll-step-content {
+  min-height: 430px;
+}
+
+.create-payroll-schedule-redesign {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 1rem !important;
+  align-items: start !important;
+}
+
+.payroll-type-card,
+.payroll-send-card,
+.recurring-payroll-summary,
+.create-payroll-schedule-preview {
+  border-radius: 18px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.payroll-type-card {
+  width: 100%;
+  padding: 1rem !important;
+}
+
+.payroll-type-card h4,
+.payroll-send-card h4 {
+  margin: 0 0 0.85rem;
+}
+
+.payroll-type-options {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.85rem !important;
+  width: 100%;
+}
+
+.payroll-type-option {
+  min-height: 76px !important;
+  width: 100% !important;
+  border-radius: 18px !important;
+  padding: 1rem !important;
+  display: grid !important;
+  grid-template-columns: auto 1fr auto !important;
+  align-items: center !important;
+  gap: 0.8rem !important;
+  text-align: left;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.085);
+}
+
+.payroll-type-option.active {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.payroll-type-option-icon,
+.payroll-send-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.095);
+}
+
+.payroll-type-radio {
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+.payroll-type-option.active .payroll-type-radio {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.payroll-send-card {
+  width: 100%;
+  padding: 1rem !important;
+}
+
+.payroll-send-card-head {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.payroll-send-card-head h4 {
+  margin: 0;
+}
+
+.payroll-send-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 0.85rem !important;
+}
+
+.payroll-send-grid > *:nth-child(3) {
+  display: none !important;
+}
+
+.payroll-send-grid .field,
+.payroll-send-grid label,
+.payroll-send-grid input,
+.payroll-send-grid .field-control,
+.payroll-send-grid .field-input-wrap,
+.payroll-send-grid > * {
+  box-shadow: none !important;
+}
+
+.payroll-send-grid input {
+  width: 100% !important;
+  height: 48px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.create-payroll-schedule-error {
+  margin-top: 0.7rem;
+  font-size: 0.78rem;
+}
+
+.recurring-payroll-summary,
+.create-payroll-schedule-preview {
+  grid-column: 1 / -1;
+}
+
+.recurring-payroll-summary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.recurring-payroll-badge {
+  display: inline-flex;
+  margin-bottom: 0.4rem;
+  color: rgba(255, 255, 255, 0.62);
+  font-family: var(--z-mono, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.recurring-payroll-summary h5 {
+  margin: 0;
+}
+
+.recurring-payroll-edit-btn {
+  min-height: 34px;
+  border-radius: 999px;
+  padding: 0 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recurring-payroll-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.recurring-payroll-summary-grid > div,
+.create-payroll-schedule-preview > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.recurring-payroll-summary-grid span,
+.create-payroll-schedule-preview span {
+  font-family: var(--z-mono, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--z-dim, rgba(255, 255, 255, 0.48));
+}
+
+.recurring-payroll-summary-grid strong,
+.create-payroll-schedule-preview strong {
+  font-size: 0.9rem;
+}
+
+.create-payroll-schedule-preview {
+  width: 100%;
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  gap: 1rem !important;
+  align-items: center !important;
+  padding: 1rem !important;
+}
+
+/* =========================================================
+   Review phase
+   ========================================================= */
+
+.create-payroll-review-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.review-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.review-row span {
+  color: var(--z-dim, rgba(255, 255, 255, 0.48));
+}
+
+.create-payroll-review-wallet {
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   Bottom wizard actions — now inside card
+   ========================================================= */
+
+.create-payroll-actions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(120px, auto) 1fr minmax(190px, auto);
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.create-payroll-actions > button:first-child {
+  justify-self: start;
+}
+
+.create-payroll-actions > button:last-child {
+  justify-self: center;
+}
+
+.create-payroll-phase-indicator {
+  justify-self: center;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.02em;
+}
+
+.create-payroll-error-box {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+/* =========================================================
+   Professional recurring schedule modal
+   ========================================================= */
+
+.recurring-modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  min-height: 100vh !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: clamp(1rem, 3vw, 2rem) !important;
+  background: rgba(0, 0, 0, 0.78) !important;
+  backdrop-filter: blur(22px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(22px) saturate(120%) !important;
+  isolation: isolate !important;
+}
+
+.recurring-modal-panel {
+  position: relative !important;
+  width: min(560px, calc(100vw - 2rem)) !important;
+  max-height: min(860px, calc(100dvh - 2rem)) !important;
+  overflow-y: auto !important;
+  overscroll-behavior: contain !important;
+  border-radius: 30px !important;
+  padding: 1.15rem !important;
+  background:
+    linear-gradient(180deg, rgba(43, 43, 43, 0.98), rgba(18, 18, 18, 0.98)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.13) !important;
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.72),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+.recurring-modal-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.08), transparent 34%),
+    radial-gradient(circle at 80% 100%, rgba(255, 255, 255, 0.04), transparent 30%);
+}
+
+.recurring-modal-topline {
+  position: relative;
+  width: 44px;
+  height: 4px;
+  border-radius: 999px;
+  margin: 0 auto 1rem;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.recurring-modal-header,
+.recurring-modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.recurring-modal-header-redesigned {
+  position: relative;
+  margin-bottom: 1rem !important;
+  padding: 0.1rem 0.1rem 0.85rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.recurring-modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.recurring-modal-title-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recurring-modal-header span,
+.recurring-modal-field-card > span,
+.recurring-modal-preview-card span {
+  font-family: var(--z-mono, monospace);
+  font-size: 0.62rem;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.46);
+}
+
+.recurring-modal-header h3 {
+  margin: 0.35rem 0 0 !important;
+  font-size: 1.18rem !important;
+  line-height: 1.1 !important;
+  color: rgba(255, 255, 255, 0.94) !important;
+}
+
+.recurring-modal-close {
+  position: relative;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 999px !important;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.78) !important;
+  background: rgba(255, 255, 255, 0.055) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.recurring-modal-close:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.09) !important;
+}
+
+.recurring-modal-form-redesigned {
+  position: relative;
+  display: grid !important;
+  gap: 0.75rem !important;
+}
+
+.recurring-modal-grid-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.recurring-modal-field-card {
+  min-width: 0;
+  padding: 0.85rem;
+  border-radius: 20px;
+  display: grid;
+  gap: 0.7rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.085);
+}
+
+.recurring-modal-field-card-wide {
+  width: 100%;
+}
+
+.recurring-modal-input-shell {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0 0.85rem;
+  border-radius: 16px;
+  color: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.recurring-modal-input-shell:focus-within {
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.045);
+}
+
+.recurring-modal-input-shell input,
+.recurring-modal-field-card input,
+.recurring-modal-field-card select {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 46px !important;
+  height: 46px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  outline: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-family: var(--z-mono, monospace) !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.01em !important;
+}
+
+.recurring-modal-input-shell input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+}
+
+.recurring-frequency-selector,
+.recurring-end-selector {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.recurring-frequency-selector {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.recurring-end-selector {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.recurring-frequency-pill,
+.recurring-end-pill {
+  min-height: 46px;
+  border-radius: 16px;
+  padding: 0 0.7rem;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--z-mono, monospace);
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.recurring-frequency-pill.active,
+.recurring-end-pill.active {
+  color: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.recurring-modal-preview-card {
+  position: relative;
+  margin-top: 0.85rem;
+  padding: 0.9rem 1rem;
+  border-radius: 20px;
+  display: grid;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.095);
+}
+
+.recurring-modal-preview-card strong {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.recurring-modal-actions {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 0.75rem !important;
+  margin-top: 1rem !important;
+}
+
+.recurring-modal-actions button {
+  width: 100%;
+  min-height: 48px !important;
+  justify-content: center !important;
+}
+
+.recurring-modal-save-btn,
+.recurring-modal-cancel-btn {
+  border-radius: 999px !important;
+}
+
+.recurring-modal-save-btn {
+  background: #fe9e15 !important;
+  color: #111 !important;
+  border-color: rgba(254, 158, 21, 0.85) !important;
+}
+
+.recurring-modal-cancel-btn {
+  background: rgba(255, 255, 255, 0.055) !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 980px) {
+  .create-payroll-employee-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recurring-payroll-summary-grid,
+  .create-payroll-schedule-preview {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .payroll-type-options {
+    grid-template-columns: 1fr !important;
+  }
+
+  .payroll-send-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .create-payroll-schedule-preview {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .create-payroll-page {
+    gap: 0.85rem;
+  }
+
+  .create-payroll-page-header {
+    min-height: 72px;
+    padding: 1rem;
+  }
+
+  .create-payroll-step-content {
+    min-height: 360px;
+  }
+
+  .create-payroll-section-head {
+    margin-bottom: 1rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .create-payroll-merged-section-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .create-payroll-employee-actions {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .create-payroll-employee-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .create-payroll-employee-row {
+    padding: 0.85rem;
+  }
+
+  .create-payroll-remove-employee {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .create-payroll-actions {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .create-payroll-phase-indicator {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: center;
+  }
+
+  .create-payroll-actions > button:first-child {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .create-payroll-actions > button:last-child {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 620px) {
+  .recurring-modal-overlay {
+    padding: 0.75rem !important;
+    place-items: end center !important;
+  }
+
+  .recurring-modal-panel {
+    width: 100% !important;
+    max-height: calc(100dvh - 1.5rem) !important;
+    border-radius: 26px !important;
+  }
+
+  .recurring-modal-grid-two,
+  .recurring-frequency-selector,
+  .recurring-end-selector,
+  .recurring-modal-actions {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .create-payroll-page-header {
+    min-height: 64px;
+    padding: 0.9rem 1rem;
+  }
+
+  .create-payroll-step-content {
+    min-height: 0;
+  }
+
+  .create-payroll-employee-row {
+    padding: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .create-payroll-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .create-payroll-actions > button:first-child,
+  .create-payroll-actions > button:last-child {
+    grid-column: 1;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+  .create-payroll-phase-indicator {
+    grid-column: 1;
+    justify-self: center;
+  }
+
+  .create-payroll-upload-csv-btn,
+  .create-payroll-add-manual-btn {
+    width: 100%;
+  }
+
+  .payroll-type-option {
+    min-height: 64px !important;
+    padding: 0.85rem !important;
+  }
+
+  .recurring-payroll-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =========================================================
+   Create Draft polish
+   ========================================================= */
+
+.dashboard-shell.create-payroll-page {
+  --create-draft-pad: 1.25rem;
+  --create-draft-panel: linear-gradient(
+    180deg,
+    rgba(32, 34, 33, 0.78),
+    rgba(18, 20, 20, 0.72)
+  );
+  --create-draft-panel-deep: linear-gradient(
+    180deg,
+    rgba(16, 18, 17, 0.88),
+    rgba(10, 12, 11, 0.82)
+  );
+  --create-draft-border: rgba(255, 255, 255, 0.11);
+  --create-draft-noise:
+    radial-gradient(circle at 14% 24%, rgba(225, 205, 162, 0.12) 0 0.7px, transparent 0.8px),
+    radial-gradient(circle at 66% 12%, rgba(255, 255, 255, 0.1) 0 0.65px, transparent 0.75px),
+    radial-gradient(circle at 84% 72%, rgba(189, 169, 126, 0.1) 0 0.75px, transparent 0.85px),
+    repeating-linear-gradient(112deg, rgba(236, 220, 181, 0.032) 0 1px, transparent 1px 14px);
+  --create-draft-header-noise:
+    radial-gradient(circle at 12% 18%, rgba(225, 205, 162, 0.12) 0 0.7px, transparent 0.8px),
+    radial-gradient(circle at 78% 42%, rgba(255, 255, 255, 0.1) 0 0.75px, transparent 0.85px),
+    radial-gradient(circle at 45% 82%, rgba(189, 169, 126, 0.1) 0 0.65px, transparent 0.75px),
+    repeating-linear-gradient(104deg, rgba(236, 220, 181, 0.03) 0 1px, transparent 1px 13px);
+  position: relative;
+  isolation: isolate;
+}
+
+.dashboard-shell.create-payroll-page::before {
+  content: "";
+  position: absolute;
+  inset: -1.25rem;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--create-draft-noise);
+  background-size: 7px 7px, 11px 11px, 15px 15px, 100% 100%;
+  background-position: 0 0, 5px 2px, 3px 7px, 0 0;
+  opacity: 0.34;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-page-header {
+  position: relative;
+  isolation: isolate;
+  min-height: 84px;
+  overflow: hidden;
+  border: 1px solid var(--dash-border, var(--create-draft-border));
+  border-radius: 28px;
+  background: var(--create-draft-panel-deep);
+  box-shadow: none;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-page-header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: var(--create-draft-header-noise);
+  background-size: 8px 8px, 13px 13px, 10px 10px, 100% 100%;
+  opacity: 0.46;
+  mix-blend-mode: screen;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-page-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-page-header h1 {
+  color: var(--z-text, #f4f4f4);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  font-weight: 620;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-page-header .page-header-eyebrow {
+  color: #8e9297;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-main-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden !important;
+  border: 1px solid var(--dash-border, var(--create-draft-border));
+  border-radius: 28px;
+  background: var(--create-draft-panel);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 20px 60px rgba(0, 0, 0, 0.32);
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-main-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: var(--create-draft-noise);
+  background-size: 7px 7px, 11px 11px, 15px 15px, 100% 100%;
+  background-position: 0 0, 5px 2px, 3px 7px, 0 0;
+  opacity: 0.72;
+  mix-blend-mode: screen;
+  filter: none;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-main-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-card-body {
+  padding: var(--create-draft-pad) !important;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-section-head {
+  margin-bottom: 1rem;
+  padding-bottom: 0.95rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-section-head span {
+  margin-bottom: 0.38rem;
+  color: #858a91;
+  font-size: 0.6rem;
+  letter-spacing: 0.11em;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-section-head h3,
+.dashboard-shell.create-payroll-page .create-payroll-merged-section-head h3,
+.dashboard-shell.create-payroll-page .payroll-type-card h4,
+.dashboard-shell.create-payroll-page .payroll-send-card h4 {
+  color: var(--z-text, #f3f4f5);
+  font-family: var(--z-display, "Mona Sans", system-ui, sans-serif);
+  letter-spacing: -0.015em;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-section-head h3 {
+  font-size: clamp(1rem, 1.45vw, 1.16rem);
+  font-weight: 650;
+  line-height: 1.15;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-section-head p,
+.dashboard-shell.create-payroll-page .create-payroll-merged-section-head p,
+.dashboard-shell.create-payroll-page .create-payroll-employee-note {
+  max-width: 44rem;
+  color: #8e9297;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.dashboard-shell.create-payroll-page .payroll-type-card,
+.dashboard-shell.create-payroll-page .payroll-send-card,
+.dashboard-shell.create-payroll-page .recurring-payroll-summary,
+.dashboard-shell.create-payroll-page .create-payroll-schedule-preview,
+.dashboard-shell.create-payroll-page .create-payroll-employee-row,
+.dashboard-shell.create-payroll-page .create-payroll-csv-hint {
+  border-color: rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.dashboard-shell.create-payroll-page .payroll-type-card,
+.dashboard-shell.create-payroll-page .payroll-send-card,
+.dashboard-shell.create-payroll-page .recurring-payroll-summary,
+.dashboard-shell.create-payroll-page .create-payroll-schedule-preview {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--create-draft-panel);
+}
+
+.dashboard-shell.create-payroll-page .payroll-type-card::after,
+.dashboard-shell.create-payroll-page .payroll-send-card::after,
+.dashboard-shell.create-payroll-page .recurring-payroll-summary::after,
+.dashboard-shell.create-payroll-page .create-payroll-schedule-preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: var(--create-draft-noise);
+  background-size: 7px 7px, 11px 11px, 15px 15px, 100% 100%;
+  background-position: 0 0, 5px 2px, 3px 7px, 0 0;
+  opacity: 0.7;
+  mix-blend-mode: screen;
+}
+
+.dashboard-shell.create-payroll-page .payroll-type-card > *,
+.dashboard-shell.create-payroll-page .payroll-send-card > *,
+.dashboard-shell.create-payroll-page .recurring-payroll-summary > *,
+.dashboard-shell.create-payroll-page .create-payroll-schedule-preview > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-shell.create-payroll-page .payroll-type-card h4,
+.dashboard-shell.create-payroll-page .payroll-send-card h4 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 620;
+}
+
+.dashboard-shell.create-payroll-page .payroll-send-grid .field,
+.dashboard-shell.create-payroll-page .payroll-send-grid label {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.dashboard-shell.create-payroll-page .payroll-send-grid .field:hover,
+.dashboard-shell.create-payroll-page .payroll-send-grid .field:focus-within {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.dashboard-shell.create-payroll-page .payroll-send-grid input {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: var(--z-text, #f3f4f5) !important;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-review-note {
+  display: grid;
+  gap: 0.25rem;
+  margin-bottom: 0.85rem;
+  padding: 0.85rem 0.9rem;
+  border: 1px solid rgba(254, 158, 21, 0.22);
+  border-radius: 12px;
+  background: rgba(254, 158, 21, 0.065);
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-review-note strong {
+  color: #f4f1ea;
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-review-note span {
+  color: #a8abb0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.dashboard-shell.create-payroll-page .create-payroll-review-list {
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 12px;
+}
+
+.dashboard-shell.create-payroll-page .review-row {
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 0;
+  background: transparent;
+}
+
+.dashboard-shell.create-payroll-page .review-row:last-child {
+  border-bottom: 0;
+}
+
+.dashboard-shell.create-payroll-page .review-row span {
+  color: #858a91;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dashboard-shell.create-payroll-page .review-row strong {
+  color: #f3f4f5;
+  font-size: 0.86rem;
+  font-weight: 620;
+}
+
+.recurring-modal-panel {
+  isolation: isolate !important;
+  background:
+    linear-gradient(180deg, rgba(32, 34, 33, 0.96), rgba(18, 20, 20, 0.94)) !important;
+}
+
+.recurring-modal-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 14% 24%, rgba(225, 205, 162, 0.12) 0 0.7px, transparent 0.8px),
+    radial-gradient(circle at 66% 12%, rgba(255, 255, 255, 0.1) 0 0.65px, transparent 0.75px),
+    radial-gradient(circle at 84% 72%, rgba(189, 169, 126, 0.1) 0 0.75px, transparent 0.85px),
+    repeating-linear-gradient(112deg, rgba(236, 220, 181, 0.032) 0 1px, transparent 1px 14px);
+  background-size: 7px 7px, 11px 11px, 15px 15px, 100% 100%;
+  background-position: 0 0, 5px 2px, 3px 7px, 0 0;
+  opacity: 0.72;
+  mix-blend-mode: screen;
+}
+
+.recurring-modal-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 720px) {
+  .dashboard-shell.create-payroll-page {
+    --create-draft-pad: 1rem;
+  }
+
+  .dashboard-shell.create-payroll-page .create-payroll-page-header,
+  .dashboard-shell.create-payroll-page .create-payroll-main-card {
+    border-radius: 16px;
+  }
+}

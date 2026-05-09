@@ -1,0 +1,1195 @@
+/* =========================================================
+   ZAMA EMPLOYER DASHBOARD
+   Adopted from CoFHE employer dashboard design pattern
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium {
+  --employer-dashboard-pad: 1.25rem;
+  --employer-noise:
+    radial-gradient(circle at 14% 24%, rgba(225, 205, 162, 0.12) 0 0.7px, transparent 0.8px),
+    radial-gradient(circle at 66% 12%, rgba(255, 255, 255, 0.1) 0 0.65px, transparent 0.75px),
+    radial-gradient(circle at 84% 72%, rgba(189, 169, 126, 0.1) 0 0.75px, transparent 0.85px),
+    repeating-linear-gradient(112deg, rgba(236, 220, 181, 0.032) 0 1px, transparent 1px 14px);
+  --employer-noise-size: 7px 7px, 11px 11px, 15px 15px, 100% 100%;
+  --employer-noise-position: 0 0, 5px 2px, 3px 7px, 0 0;
+  --employer-header-noise:
+    radial-gradient(circle at 12% 18%, rgba(139, 119, 82, 0.2) 0 0.7px, transparent 0.8px),
+    radial-gradient(circle at 78% 42%, rgba(139, 119, 82, 0.14) 0 0.75px, transparent 0.85px),
+    radial-gradient(circle at 45% 82%, rgba(255, 255, 255, 0.36) 0 0.65px, transparent 0.75px),
+    repeating-linear-gradient(104deg, rgba(126, 106, 70, 0.08) 0 1px, transparent 1px 13px);
+  --employer-header-noise-size: 8px 8px, 13px 13px, 10px 10px, 100% 100%;
+  --employer-panel: linear-gradient(
+    180deg,
+    rgba(32, 34, 33, 0.78),
+    rgba(18, 20, 20, 0.72)
+  );
+  --employer-panel-soft: linear-gradient(
+    180deg,
+    rgba(24, 26, 25, 0.82),
+    rgba(14, 16, 15, 0.76)
+  );
+  --employer-panel-deep: linear-gradient(
+    180deg,
+    rgba(16, 18, 17, 0.88),
+    rgba(10, 12, 11, 0.82)
+  );
+  --employer-border: rgba(255, 255, 255, 0.11);
+  --employer-border-strong: rgba(255, 255, 255, 0.18);
+  --employer-muted: #8e9297;
+  --employer-dim: #73777d;
+  --employer-text: #f4f4f4;
+  --employer-soft-text: #d7dadd;
+  --employer-accent: var(--z-accent, #fe9e15);
+
+  gap: 1rem;
+  min-width: 0;
+  position: relative;
+  isolation: isolate;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium::before {
+  content: "";
+  position: absolute;
+  inset: -1.25rem;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--employer-noise);
+  background-size: var(--employer-noise-size);
+  background-position: var(--employer-noise-position);
+  opacity: 0.34;
+}
+
+/* =========================================================
+   Header
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-dashboard-head.employee-claims-header-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  min-height: 84px;
+  padding: var(--employer-dashboard-pad);
+  border: 1px solid var(--dash-border, var(--employer-border));
+  border-radius: 28px;
+  background:
+    var(--employer-header-noise),
+    var(--dash-panel-deep, var(--employer-panel-deep));
+  background-size: var(--employer-header-noise-size), auto;
+  background-blend-mode: screen, normal;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.employer-head-copy {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-dashboard-head
+  h1 {
+  margin: 0;
+  font-family: var(--z-display, "Mona Sans", system-ui, sans-serif);
+  font-size: 1.45rem;
+  font-weight: 560;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--z-text, var(--employer-text));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.employer-head-side {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 7.4rem;
+  grid-area: auto;
+}
+
+.employer-head-balance {
+  display: grid;
+  justify-items: end;
+  gap: 0.22rem;
+  text-align: right;
+}
+
+.employer-head-balance span {
+  color: var(--employer-muted);
+  font-family: var(--z-mono, monospace);
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.employer-head-balance strong {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 0.28rem;
+  margin: 0;
+  color: var(--z-text, var(--employer-text));
+  font-family: var(--z-display, "Mona Sans", system-ui, sans-serif);
+  font-size: 1.08rem;
+  font-weight: 650;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.employer-head-balance strong small {
+  color: var(--employer-muted);
+  font-family: var(--z-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 500;
+  line-height: 1.2;
+  padding-bottom: 0.05rem;
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   Content + Card
+========================================================= */
+
+.employer-dashboard-content,
+.dashboard-shell-employer.employer-dashboard-premium
+  [data-tour="employer-templates"] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-card.employee-claims-card {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  padding: var(--employer-dashboard-pad);
+  overflow: visible;
+  border: 1px solid var(--dash-border, var(--employer-border));
+  border-radius: 28px;
+  background:
+    var(--employer-noise),
+    var(--dash-panel, var(--employer-panel));
+  background-size: var(--employer-noise-size), auto;
+  background-position: var(--employer-noise-position), 0 0;
+  background-blend-mode: screen, normal;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 20px 60px rgba(0, 0, 0, 0.32);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-card.employee-claims-card::before {
+  display: none;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-card.employee-claims-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 14% 24%, rgba(225, 205, 162, 0.12) 0 0.7px, transparent 0.8px),
+    radial-gradient(circle at 66% 12%, rgba(255, 255, 255, 0.1) 0 0.65px, transparent 0.75px),
+    radial-gradient(circle at 84% 72%, rgba(189, 169, 126, 0.1) 0 0.75px, transparent 0.85px),
+    repeating-linear-gradient(112deg, rgba(236, 220, 181, 0.032) 0 1px, transparent 1px 14px);
+  background-size: 7px 7px, 11px 11px, 15px 15px, 100% 100%;
+  background-position: 0 0, 5px 2px, 3px 7px, 0 0;
+  opacity: 0.72;
+  mix-blend-mode: screen;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-card.employee-claims-card
+  > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-card
+  > .stack {
+  min-width: 0;
+  width: 100%;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-card
+  .card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: 0 0 1rem;
+  border-bottom: 1px solid var(--dash-border, var(--employer-border));
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-card
+  .card-head
+  h3 {
+  margin: 0;
+  color: var(--z-text, var(--employer-text));
+  font-family: var(--z-display, "Mona Sans", system-ui, sans-serif);
+  font-size: 0.96rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+/* Backward compatibility if old JSX still has employer-payroll-card-head */
+.employer-payroll-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--dash-border, var(--employer-border));
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.employer-payroll-card-head h2 {
+  margin: 0;
+  color: var(--z-text, var(--employer-text));
+  font-family: var(--z-display, "Mona Sans", system-ui, sans-serif);
+  font-size: 0.96rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+/* =========================================================
+   Create Button
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-create-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.2rem;
+  padding-inline: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #171717;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-create-btn:hover {
+  border-color: #ffffff;
+  background: #f5f2eb;
+  color: #171717;
+}
+
+/* =========================================================
+   Toolbar
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-toolbar {
+  display: grid;
+  grid-template-columns: minmax(14rem, 22rem) minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-search {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 16px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--z-text, var(--employer-text));
+  font-family: var(--z-body, "Fira Mono", monospace);
+  font-size: 0.82rem;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-search:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-search:focus {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.065);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-search::placeholder {
+  color: #73777d;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filter-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+/* Desktop filter tabs */
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filters.filter-tabs {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.28rem;
+  min-width: 0;
+  padding: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filters
+  .filter-tab {
+  min-height: 2.2rem;
+  padding: 0 0.86rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: #858a91;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filters
+  .filter-tab:hover {
+  color: #d5d7da;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filters
+  .filter-tab.active {
+  color: var(--employer-accent);
+  border-color: rgba(254, 158, 21, 0.24);
+  background: rgba(254, 158, 21, 0.09);
+}
+
+/* Mobile filter trigger */
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filter-trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.45rem;
+  padding: 0.62rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.075);
+  color: #e9e5dc;
+  font-family: var(--z-body, "Fira Mono", monospace);
+  font-size: 0.78rem;
+  font-weight: 400;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filter-trigger:hover,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filter-trigger[aria-expanded="true"] {
+  border-color: rgba(230, 213, 174, 0.28);
+  background: rgba(230, 213, 174, 0.13);
+  color: #ffffff;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filter-menu {
+  position: absolute;
+  top: calc(100% + 0.45rem);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  gap: 0.18rem;
+  min-width: min(13rem, calc(100vw - 2.6rem));
+  padding: 0.38rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(31, 33, 32, 0.98), rgba(19, 21, 21, 0.96)),
+    radial-gradient(circle at 16% 20%, rgba(255, 255, 255, 0.08), transparent 34%);
+  backdrop-filter: blur(24px) saturate(1.15);
+  -webkit-backdrop-filter: blur(24px) saturate(1.15);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 50px rgba(0, 0, 0, 0.42);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filter-menu
+  button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.72rem 0.8rem;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #a9adb2;
+  font-family: var(--z-body, "Fira Mono", monospace);
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filter-menu
+  button:hover {
+  background: rgba(255, 255, 255, 0.055);
+  color: #ffffff;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-filter-menu
+  button.active {
+  background: rgba(254, 158, 21, 0.1);
+  color: var(--employer-accent);
+}
+
+/* =========================================================
+   Table Wrap
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table-wrap {
+  display: block;
+  height: auto;
+  min-height: 0;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.018);
+  overflow-x: auto;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-loading,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-error,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-empty-message {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--employer-muted);
+  font-family: var(--z-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-error {
+  color: var(--z-danger, #ff5f57);
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-empty-shell {
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-empty-shell
+  .empty-state,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-empty-shell
+  .empty-card,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-empty-shell
+  [class*="empty"] {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-empty-shell
+  .empty-state {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-empty-shell
+  .empty-state-icon {
+  background: transparent !important;
+}
+
+/* =========================================================
+   Table
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  thead {
+  display: table-header-group;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  th {
+  padding: 0.72rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+  background: rgba(255, 255, 255, 0.035);
+  color: #9da4ac;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: left;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  th:last-child {
+  text-align: right;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  tbody
+  tr {
+  background: transparent;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  td {
+  padding: 0.82rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+  color: var(--employer-muted);
+  font-size: 0.84rem;
+  vertical-align: middle;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  td:first-child {
+  color: var(--z-text, var(--employer-text));
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  td:first-child
+  strong {
+  display: block;
+  color: var(--z-text, var(--employer-text));
+  font-weight: 580;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  tbody
+  tr:last-child
+  td {
+  border-bottom: none;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-table
+  tbody
+  tr:hover
+  td {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+/* =========================================================
+   Status Link
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-status-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  max-width: none;
+  padding: 0.38rem 0.52rem;
+  border-radius: 999px;
+  color: #d5d7da;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-status-link:hover {
+  background: rgba(255, 255, 255, 0.055);
+  color: #ffffff;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-status-link
+  svg {
+  flex: 0 0 auto;
+}
+
+/* =========================================================
+   Pagination
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-pagination,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employee-claims-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 0;
+  margin-top: 0.875rem;
+  border-top: 1px solid var(--dash-border, var(--employer-border));
+  color: var(--employer-muted);
+  font-family: var(--z-mono, monospace);
+  font-size: 0.68rem;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-pagination-controls,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employee-claims-pagination-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-page-btn,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employee-claims-page-btn,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-page-count,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employee-claims-page-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  min-height: 2.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #d5d7da;
+  font-family: var(--z-mono, monospace);
+  font-size: 0.68rem;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-page-btn,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employee-claims-page-btn {
+  cursor: pointer;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-page-btn:hover:not(:disabled),
+.dashboard-shell-employer.employer-dashboard-premium
+  .employee-claims-page-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.075);
+  color: #ffffff;
+}
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-payroll-page-btn:disabled,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employee-claims-page-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   Connect Wallet State
+========================================================= */
+
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-connect-card {
+  border: 1px solid var(--dash-border, var(--employer-border));
+  border-radius: 4px;
+  background: var(--dash-panel, var(--employer-panel));
+  box-shadow: none;
+}
+
+.employer-connect-card-body {
+  padding: 0.2rem 0;
+}
+
+.employer-connect-card-body h3,
+.dashboard-shell-employer.employer-dashboard-premium
+  .employer-connect-card
+  .card-head
+  h3 {
+  margin: 0 0 0.35rem;
+  color: var(--z-text, var(--employer-text));
+  font-family: var(--z-display, "Mona Sans", system-ui, sans-serif);
+  font-size: 1rem;
+  font-weight: 650;
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width: 980px) {
+  .dashboard-shell-employer.employer-dashboard-premium,
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-dashboard-content,
+  .dashboard-shell-employer.employer-dashboard-premium
+    [data-tour="employer-templates"],
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card,
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card
+    > .stack {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-dashboard-head.employee-claims-header-card {
+    grid-template-columns: minmax(0, 1fr) minmax(10rem, auto);
+    column-gap: 1rem;
+    padding: 1.15rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-toolbar {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-search {
+    width: 100%;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-filter-area {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-filters.filter-tabs {
+    display: none;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-filter-trigger {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 720px) {
+  .dashboard-shell-employer.employer-dashboard-premium {
+    --employer-dashboard-pad: 1rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card.employee-claims-card {
+    border-radius: 16px;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-dashboard-head.employee-claims-header-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-side {
+    align-self: start;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-balance {
+    text-align: right;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-balance
+    span {
+    font-size: 0.56rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-balance
+    strong {
+    font-size: 1rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card.employee-claims-card {
+    padding: 1rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card
+    .card-head,
+  .employer-payroll-card-head {
+    gap: 0.75rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table-wrap {
+    border-radius: 10px;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    thead {
+    display: table-header-group !important;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    tbody {
+    display: table-row-group;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    tr {
+    display: table-row;
+    background: transparent;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    th {
+    display: table-cell !important;
+    padding: 0.65rem 0.55rem;
+    white-space: nowrap;
+    font-size: 0.6rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    th:last-child {
+    text-align: right;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    td {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0.7rem 0.55rem;
+    background: transparent;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    td:first-child {
+    max-width: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    td:first-child
+    strong {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    th:nth-child(2),
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    td:nth-child(2) {
+    display: none !important;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    td:nth-child(3) {
+    width: 1%;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    tbody
+    tr:last-child
+    td {
+    border-bottom: none;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-status-link {
+    padding: 0.38rem 0.52rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .dashboard-shell-employer.employer-dashboard-premium {
+    gap: 0.85rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-dashboard-head.employee-claims-header-card {
+    grid-template-columns: minmax(0, 1fr) minmax(6.4rem, auto);
+    align-items: start;
+    border-radius: 14px;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-dashboard-head
+    h1 {
+    font-size: 1.16rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-balance
+    strong
+    small {
+    display: block;
+    margin-top: 0.1rem;
+    font-size: 0.58rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card.employee-claims-card {
+    border-radius: 14px;
+    padding: 0.9rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card
+    .card-head,
+  .employer-payroll-card-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card
+    .card-head
+    h3,
+  .employer-payroll-card-head h2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-search {
+    min-height: 2.65rem;
+    border-radius: 16px;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card
+    .table
+    tbody {
+    gap: 0.55rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card
+    .table
+    tr {
+    padding: 0.78rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employee-claims-page-btn,
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-page-btn {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-filter-trigger {
+    min-height: 2.75rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employee-claims-pagination,
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table-wrap {
+    border-radius: 8px;
+    padding: 0.82rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-dashboard-head.employee-claims-header-card {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "side";
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-copy {
+    grid-area: copy;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-side {
+    grid-area: side;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-balance {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-head-balance
+    strong
+    small {
+    display: inline;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-dashboard-head
+    h1 {
+    font-size: 1.22rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-card
+    .card-head,
+  .employer-payroll-card-head {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-create-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-filter-trigger {
+    width: 100%;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-filter-menu {
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    th,
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-table
+    td {
+    padding-left: 0.45rem;
+    padding-right: 0.45rem;
+  }
+
+  .dashboard-shell-employer.employer-dashboard-premium
+    .employer-payroll-status-link
+    .status {
+    max-width: 5.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

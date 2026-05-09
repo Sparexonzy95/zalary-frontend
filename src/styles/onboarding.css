@@ -1,0 +1,296 @@
+.onboarding-page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+.onboarding-hero {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.onboarding-hero h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.onboarding-hero p {
+  color: var(--muted, #8c8c8c);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.eyebrow {
+  color: #fe9e15;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.onboarding-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.form-stack {
+  display: grid;
+  gap: 14px;
+}
+
+.form-stack input {
+  width: 100%;
+}
+
+.success-box,
+.dev-code {
+  border: 1px solid rgba(254, 158, 21, 0.28);
+  background: rgba(254, 158, 21, 0.08);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.dev-code {
+  color: #fe9e15;
+}
+
+@media (max-width: 760px) {
+  .onboarding-page {
+    padding: 32px 14px;
+  }
+
+  .onboarding-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.onboarding-wallet-row {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet-connect-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wallet-error {
+  font-size: 12px;
+  color: #ff6b6b;
+}
+
+
+.onboarding-identity-box {
+  margin-top: 18px;
+}
+
+.onboarding-wallet-row {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wallet-connect-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wallet-error {
+  font-size: 12px;
+  color: #ff6b6b;
+}
+
+
+.account-page {
+  width: 100%;
+}
+
+.account-hero {
+  margin-bottom: 28px;
+}
+
+.account-hero h1 {
+  margin: 8px 0 10px;
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: -0.04em;
+}
+
+.account-hero p {
+  max-width: 760px;
+  color: var(--muted, #9ca3af);
+  line-height: 1.7;
+}
+
+.account-wallet-row {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.account-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.account-detail-list {
+  display: grid;
+  gap: 12px;
+}
+
+.account-detail-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.account-detail-row:last-child {
+  border-bottom: 0;
+}
+
+.account-detail-row span {
+  color: var(--muted, #9ca3af);
+}
+
+.account-detail-row strong {
+  text-align: right;
+  font-weight: 600;
+}
+
+.account-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.account-actions-spaced {
+  margin-top: 18px;
+}
+
+.account-help-text {
+  margin-top: 14px;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .account-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .account-detail-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .account-detail-row strong {
+    text-align: left;
+  }
+}
+
+/* Employer onboarding carousel behavior repair */
+.employer-onboarding-carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.employer-onboarding-carousel-track {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  transition: transform 260ms ease;
+  will-change: transform;
+}
+
+.employer-onboarding-slide {
+  min-width: 100%;
+  flex: 0 0 100%;
+  pointer-events: auto;
+}
+
+.employer-onboarding-card input,
+.employer-onboarding-card button,
+.employer-onboarding-card textarea,
+.employer-onboarding-card select {
+  pointer-events: auto;
+}
+
+.employer-onboarding-status-item,
+.employer-onboarding-slide-actions button {
+  pointer-events: auto;
+}
+
+/* Final onboarding interaction fix */
+.employer-onboarding-carousel-viewport {
+  width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+.employer-onboarding-slide-active {
+  width: 100%;
+  min-width: 100%;
+  display: block;
+  pointer-events: auto;
+}
+
+.employer-onboarding-card,
+.employer-onboarding-card * {
+  pointer-events: auto;
+}
+
+.employer-onboarding-slide-actions {
+  position: relative;
+  z-index: 20;
+}
+
+.employer-onboarding-slide-actions .btn,
+.employer-onboarding-slide-actions button,
+.employer-onboarding-status-item {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.employer-onboarding-card input,
+.employer-onboarding-card textarea,
+.employer-onboarding-card select {
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.employer-onboarding-card button:disabled,
+.employer-onboarding-status-item:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Save button click safety */
+.employer-onboarding-carousel,
+.employer-onboarding-carousel-viewport,
+.employer-onboarding-slide-active,
+.employer-onboarding-card,
+.form-stack,
+.employer-onboarding-slide-actions {
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.employer-onboarding-slide-actions button,
+.employer-onboarding-card input {
+  pointer-events: auto !important;
+}
