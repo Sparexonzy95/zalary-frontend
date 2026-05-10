@@ -194,14 +194,18 @@ export function EmployerDashboardPage() {
 
       return normalizeTemplates(res.data);
     },
-    refetchInterval: 15_000,
+    placeholderData: (previousData) => previousData,
+    refetchInterval: 30_000,
+    staleTime: 30_000,
   });
 
   const usdcBalanceQuery = useQuery({
     queryKey: ["zama", "usdcBalance", wallet],
     enabled: Boolean(wallet),
     queryFn: () => readPublicUsdcBalance(wallet),
-    refetchInterval: 15_000,
+    placeholderData: (previousData) => previousData,
+    refetchInterval: 45_000,
+    staleTime: 30_000,
   });
 
   const templates = templatesQuery.data ?? [];
@@ -217,7 +221,10 @@ export function EmployerDashboardPage() {
 
         return res.data;
       },
-      refetchInterval: 15_000,
+      placeholderData: (previousData: PayrollRun[] | undefined) =>
+        previousData ?? [],
+      refetchInterval: 30_000,
+      staleTime: 30_000,
     })),
   });
 
@@ -256,7 +263,10 @@ export function EmployerDashboardPage() {
         const { data } = await api.get(routes.claims.list, { params: { run: runId } });
         return normalizeClaims(data);
       },
-      refetchInterval: 10_000,
+      placeholderData: (previousData: Claim[] | undefined) =>
+        previousData ?? [],
+      refetchInterval: 30_000,
+      staleTime: 15_000,
     })),
   });
 

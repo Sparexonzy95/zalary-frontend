@@ -330,6 +330,10 @@ export function RunDetailPage() {
     ]);
   }
 
+  async function refetchRunStatus() {
+    await runQuery.refetch();
+  }
+
   function requireLoadedRun() {
     if (!run) throw new Error("Payroll run is still loading.");
     return run;
@@ -387,8 +391,8 @@ export function RunDetailPage() {
 
   useEffect(() => {
     if (!runId || !hasFastRunActivity) return;
-    void refetchRunData();
-    const intervalId = window.setInterval(() => { void refetchRunData(); }, 1_000);
+    void refetchRunStatus();
+    const intervalId = window.setInterval(() => { void refetchRunStatus(); }, 1_000);
     return () => window.clearInterval(intervalId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [runId, hasFastRunActivity]);
@@ -410,7 +414,6 @@ export function RunDetailPage() {
       });
       await createOnchainMutation.mutateAsync(tx);
       toast.push({ kind: "success", title: "Payroll creation sent", message: `Local demo state is tracking ${shortHash(tx.tx_hash)}.` });
-      await refetchRunData();
     } catch (error) {
       toast.push({ kind: "error", title: "Could not create payroll", message: getErrorMessage(error) });
     } finally {
@@ -447,7 +450,6 @@ export function RunDetailPage() {
         inputProof,
       });
       toast.push({ kind: "success", title: "Salary upload sent", message: `Local demo state is tracking ${shortHash(tx.tx_hash)}.` });
-      await refetchRunData();
     } catch (error) {
       toast.push({ kind: "error", title: "Could not upload salaries", message: getErrorMessage(error) });
     } finally {
@@ -466,7 +468,6 @@ export function RunDetailPage() {
       });
       await finalizeMutation.mutateAsync(tx);
       toast.push({ kind: "success", title: "Salary lock sent", message: `Local demo state is tracking ${shortHash(tx.tx_hash)}.` });
-      await refetchRunData();
     } catch (error) {
       toast.push({ kind: "error", title: "Could not lock salaries", message: getErrorMessage(error) });
     } finally {
@@ -498,7 +499,6 @@ export function RunDetailPage() {
       const amountAtomic = requiredFundingAmountAtomic();
       const tx = await sendFundPayrollTransaction(sender, amountAtomic);
       toast.push({ kind: "success", title: "Funding sent", message: `Local demo state is tracking ${shortHash(tx.tx_hash)}.` });
-      await refetchRunData();
     } catch (error) {
       toast.push({ kind: "error", title: "Could not fund payroll", message: getErrorMessage(error) });
     } finally {
@@ -523,7 +523,6 @@ export function RunDetailPage() {
       });
       const tx = await sendFundPayrollTransaction(sender, amountAtomic);
       toast.push({ kind: "success", title: "Top-up and funding sent", message: `SwapRouter top-up completed. Local demo state is tracking ${shortHash(tx.tx_hash)}.` });
-      await refetchRunData();
     } catch (error) {
       toast.push({ kind: "error", title: "Could not top up and fund payroll", message: getErrorMessage(error) });
     } finally {
@@ -558,7 +557,6 @@ export function RunDetailPage() {
       });
       toast.push({ kind: "success", title: "Activation sent", message: `Local demo state is tracking ${shortHash(tx.tx_hash)}.` });
       setActivationNoticeOpen(true);
-      await refetchRunData();
     } catch (error) {
       toast.push({ kind: "error", title: "Could not activate payroll", message: getErrorMessage(error) });
     } finally {

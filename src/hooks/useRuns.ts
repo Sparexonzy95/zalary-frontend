@@ -108,12 +108,10 @@ export function useRun(runId?: string | number | null) {
 
       if (!run || isRunWaitingForConfirmation(status)) return 1_000;
       if (!isTerminalRun(status) && status !== "active") return 2_000;
-      return 5_000;
+      return false;
     },
-    refetchIntervalInBackground: true,
-    refetchOnMount: "always",
-    refetchOnWindowFocus: "always",
-    staleTime: 0,
+    refetchOnMount: false,
+    staleTime: 5_000,
   });
 }
 
@@ -126,9 +124,7 @@ export function useRunFundingQuote(runId?: string | number | null) {
       return data as FundingQuote;
     },
     enabled: hasId(runId),
-    refetchInterval: 5_000,
-    refetchOnWindowFocus: "always",
-    staleTime: 0,
+    staleTime: 60_000,
   });
 }
 
@@ -145,6 +141,7 @@ export function useRunMissingHandles(runId?: string | number | null) {
       } as MissingHandlesResponse;
     },
     enabled: hasId(runId),
+    staleTime: 30_000,
   });
 }
 
@@ -158,9 +155,7 @@ export function useRunAllocations(runId?: string | number | null) {
     },
     enabled: hasId(runId),
     initialData: [] as RunAllocation[],
-    refetchInterval: 5_000,
-    refetchOnWindowFocus: "always",
-    staleTime: 0,
+    staleTime: 30_000,
   });
 }
 
@@ -231,7 +226,7 @@ export function useActivatePayroll(runId?: string | number | null) {
     onSuccess: async () => {
       await Promise.allSettled([
         invalidateRunQueries(queryClient, runId),
-        queryClient.invalidateQueries({ queryKey: ["employeeClaimables"], exact: false }),
+        queryClient.invalidateQueries({ queryKey: ["claimables"], exact: false }),
       ]);
     },
   });

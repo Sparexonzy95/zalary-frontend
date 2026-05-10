@@ -24,6 +24,7 @@ export function useTemplate(id?: string | number | null) {
       return data as PayrollTemplate;
     },
     enabled: hasId(id),
+    placeholderData: (previousData) => previousData,
   });
 }
 
@@ -35,6 +36,7 @@ export function useTemplatePreviewRuns(id?: string | number | null) {
       return data as TemplatePreviewRuns;
     },
     enabled: hasId(id),
+    placeholderData: (previousData) => previousData,
   });
 }
 
@@ -46,6 +48,7 @@ export function useTemplateRuns(id?: string | number | null) {
       return data as PayrollRun[];
     },
     enabled: hasId(id),
+    placeholderData: (previousData) => previousData,
   });
 }
 

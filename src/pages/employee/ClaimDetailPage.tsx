@@ -251,7 +251,7 @@ function claimPollingInterval(claim?: Claim | null) {
   const status = normalizedStatus(claim?.status);
 
   if (!claim) return ACTIVE_REFRESH_MS;
-  if (isClaimFinalized(status)) return 15_000;
+  if (isClaimFinalized(status)) return false;
   if (isClaimWaitingForProof(status, claim) || status === "finalize_broadcasted") {
     return ACTIVE_REFRESH_MS;
   }
@@ -264,7 +264,7 @@ function withdrawPollingInterval(withdraw?: SwapRouterWithdraw | null) {
   const status = normalizedStatus(withdraw?.status);
 
   if (!withdraw) return ACTIVE_REFRESH_MS;
-  if (isWithdrawFinalized(status)) return 15_000;
+  if (isWithdrawFinalized(status)) return false;
   if (isWithdrawMoving(status) || withdrawCanSync(status) || withdrawCanFinalize(status)) {
     return ACTIVE_REFRESH_MS;
   }

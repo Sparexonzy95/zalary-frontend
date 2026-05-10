@@ -282,14 +282,6 @@ export function TemplateDetailPage() {
     };
   })();
 
-  async function refetchPage() {
-    await Promise.allSettled([
-      templateQuery.refetch(),
-      previewQuery.refetch(),
-      runsQuery.refetch(),
-    ]);
-  }
-
   async function createNextRun() {
     try {
       const run = await createRunMutation.mutateAsync({});
@@ -299,8 +291,6 @@ export function TemplateDetailPage() {
         title: "Run created",
         message: "Opening the payroll run lifecycle page.",
       });
-
-      await refetchPage();
 
       const runId = getRunId(run);
 
@@ -330,8 +320,6 @@ export function TemplateDetailPage() {
         title: "Payroll run created",
         message: "Opening the payroll run lifecycle page.",
       });
-
-      await refetchPage();
 
       const runId = getRunId(run);
 

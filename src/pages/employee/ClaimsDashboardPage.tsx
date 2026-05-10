@@ -197,7 +197,9 @@ export function ClaimsDashboardPage() {
       return normalizeClaimables(data);
     },
     enabled: Boolean(activeWallet),
+    placeholderData: (previousData) => previousData,
     refetchInterval: 20_000,
+    staleTime: 30_000,
   });
 
   const createClaim = useMutation({
@@ -221,13 +223,6 @@ export function ClaimsDashboardPage() {
       });
     },
   });
-
-  useEffect(() => {
-    if (wallet) {
-      void claimablesQuery.refetch();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wallet]);
 
   const rows = useMemo(() => {
     const data = claimablesQuery.data ?? [];
@@ -282,8 +277,6 @@ export function ClaimsDashboardPage() {
       if (!created?.id) {
         throw new Error("Claim was created but no claim id was returned.");
       }
-
-      await claimablesQuery.refetch();
 
       navigate(claimPath(item, created.id));
     } catch (error: any) {
