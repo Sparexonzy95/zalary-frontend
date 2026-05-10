@@ -122,7 +122,7 @@ export function Faq() {
   };
 
   return (
-    <section className="relative py-24 bg-[#1c1c1c] overflow-hidden">
+    <section id="faq" className="relative overflow-hidden bg-[#1c1c1c] py-16 md:py-24">
       {/* dark ambient background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute -top-40 right-[-10%] h-[60vh] w-[45vw] bg-black/50 blur-[160px]" />
@@ -130,7 +130,7 @@ export function Faq() {
       </div>
 
       <motion.div
-        className="mx-auto max-w-[820px] px-4"
+        className="mx-auto max-w-[820px] px-4 sm:px-6"
         onMouseMove={handleMouseMove}
         initial={{ opacity: 0, scale: 0.97, y: 30 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -138,15 +138,15 @@ export function Faq() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* HEADER */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold text-white tracking-tight">
+        <div className="mb-10 text-center md:mb-12">
+          <h2 className="text-2xl font-semibold tracking-normal text-white sm:text-3xl">
             Frequently Asked Questions
           </h2>
         </div>
 
         {/* CATEGORY FILTER */}
-        <div className="flex justify-center mb-10">
-          <div className="flex rounded-full bg-white/[0.04] border border-white/10 p-1 backdrop-blur-md">
+        <div className="mb-8 flex justify-start overflow-x-auto pb-2 sm:mb-10 sm:justify-center">
+          <div className="flex min-w-max rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-md">
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat;
 
@@ -157,7 +157,7 @@ export function Faq() {
                     setActiveCategory(cat);
                     setOpenQuestion(null);
                   }}
-                  className="relative px-4 py-1.5 text-[11px] uppercase tracking-widest"
+                  className="relative whitespace-nowrap px-3 py-1.5 text-[10px] uppercase tracking-widest sm:px-4 sm:text-[11px]"
                 >
                   {isActive && (
                     <motion.div
@@ -225,8 +225,8 @@ export function Faq() {
                       }
                       className="w-full flex justify-between px-5 py-5 text-left"
                     >
-                      <span className="text-white/80">{faq.q}</span>
-                      <span className="text-white/40">
+                      <span className="pr-4 text-sm text-white/80 sm:text-base">{faq.q}</span>
+                      <span className="flex-shrink-0 text-white/40">
                         {isOpen ? "−" : "+"}
                       </span>
                     </button>

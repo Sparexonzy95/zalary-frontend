@@ -37,8 +37,8 @@ function FeatureBlock({
   const imageVariant = reverse ? fadeLeftVariant : fadeRightVariant;
 
   return (
-    <section id={id} style={{ backgroundColor: bg }} className="py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-6 md:px-10">
+    <section id={id} style={{ backgroundColor: bg }} className="py-16 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 md:px-10">
         <div
           className={[
             "flex flex-col gap-10 sm:gap-12 lg:flex-row lg:items-center lg:gap-16",
@@ -63,7 +63,7 @@ function FeatureBlock({
 
               <motion.h2
                 variants={fadeUpVariant}
-                className="mt-4 font-display text-[22px] sm:text-[28px] md:text-[36px] font-bold leading-[1.1] tracking-[-0.025em] text-foreground"
+                className="mt-4 font-display text-[22px] sm:text-[28px] md:text-[36px] font-bold leading-[1.1] tracking-normal text-foreground"
               >
                 {title}
               </motion.h2>
@@ -80,9 +80,9 @@ function FeatureBlock({
                   <motion.li
                     key={feature}
                     variants={itemVariant}
-                    className="flex items-center gap-3 text-[14px] text-foreground/75"
+                    className="flex items-start gap-3 text-[14px] leading-relaxed text-foreground/75"
                   >
-                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
                     {feature}
                   </motion.li>
                 ))}

@@ -171,11 +171,11 @@ export function Footer() {
         initial={{ opacity: 0, y: 50 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.9, ease: "easeOut" }}
-        className="relative z-10 mx-auto max-w-[1440px] px-6 py-16 md:px-10 lg:px-14"
+        className="relative z-10 mx-auto max-w-[1440px] px-5 py-12 sm:px-6 md:px-10 md:py-16 lg:px-14"
       >
         {/* Top CTA */}
         <div className="mb-14 overflow-hidden rounded-[20px] border border-white/15 bg-white/[0.06] shadow-2xl backdrop-blur-3xl">
-          <div className="relative grid items-center gap-10 p-8 md:p-12 lg:grid-cols-[1fr_auto]">
+          <div className="relative grid items-center gap-8 p-6 sm:p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:gap-10">
             <div>
               <div className="mb-4 flex items-center gap-3">
                 <p className="text-xs uppercase tracking-[0.35em] text-white/45">
@@ -188,7 +188,7 @@ export function Footer() {
                 className="absolute right-8 top-1/2 hidden -translate-y-1/2 text-white/5 pointer-events-none lg:block"
               />
 
-              <h2 className="text-3xl font-semibold leading-tight md:text-5xl lg:text-6xl">
+              <h2 className="text-2xl font-semibold leading-tight tracking-normal sm:text-3xl md:text-5xl lg:text-6xl">
                 Let’s connect and build
                 <br />
                 <span className="block text-white/60">
@@ -206,7 +206,7 @@ export function Footer() {
             <Link
               to="/app"
               aria-label="Launch Zalary app"
-              className="decrypt-hover-btn group flex h-20 w-20 items-center justify-center rounded-full border border-white/15 bg-lime-300 text-black transition-all duration-300 hover:scale-105"
+              className="decrypt-hover-btn group flex h-16 w-16 items-center justify-center rounded-full border border-white/15 bg-lime-300 text-black transition-all duration-300 hover:scale-105 sm:h-20 sm:w-20"
             >
               <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
@@ -215,7 +215,7 @@ export function Footer() {
 
         {/* Community CTA Card */}
         <div className="mb-14 overflow-hidden rounded-[20px] border border-white/30 bg-white/80 text-black shadow-2xl backdrop-blur-3xl">
-          <div className="relative grid items-center gap-10 p-8 md:p-12 lg:grid-cols-[1fr_auto]">
+          <div className="relative grid items-center gap-8 p-6 sm:p-8 md:p-12 lg:grid-cols-[1fr_auto] lg:gap-10">
             <div>
               <div className="mb-4 flex items-center gap-3">
                 <p className="text-xs uppercase tracking-[0.35em] text-black/50">
@@ -228,7 +228,7 @@ export function Footer() {
                 className="absolute right-8 top-1/2 hidden -translate-y-1/2 text-black/5 pointer-events-none lg:block"
               />
 
-              <h2 className="text-3xl font-semibold leading-tight md:text-5xl lg:text-6xl">
+              <h2 className="text-2xl font-semibold leading-tight tracking-normal sm:text-3xl md:text-5xl lg:text-6xl">
                 Follow the conversation
                 <span className="block text-black/60">on X.</span>
               </h2>
@@ -244,7 +244,7 @@ export function Footer() {
               href="https://x.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="decrypt-hover-btn group flex h-20 w-20 items-center justify-center rounded-full border border-black/10 bg-neutral-200 text-black transition-all duration-300 hover:scale-105"
+              className="decrypt-hover-btn group flex h-16 w-16 items-center justify-center rounded-full border border-black/10 bg-neutral-200 text-black transition-all duration-300 hover:scale-105 sm:h-20 sm:w-20"
               aria-label="Visit Zalary on X"
             >
               <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
@@ -255,7 +255,7 @@ export function Footer() {
         {/* Main Footer Grid */}
         <div className="grid gap-12 border-y border-white/10 py-14 lg:grid-cols-[1.2fr_2fr]">
           <div>
-            <h3 className="max-w-[320px] text-3xl font-semibold leading-tight md:text-4xl">
+            <h3 className="max-w-[320px] text-2xl font-semibold leading-tight tracking-normal md:text-4xl">
               Payroll infrastructure for high-performance companies.
             </h3>
 
@@ -268,7 +268,7 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-10 md:grid-cols-4">
             {footerLinks.map((group) => (
               <div key={group.title}>
                 <h4 className="mb-5 text-xs font-medium uppercase tracking-[0.25em] text-white/35">

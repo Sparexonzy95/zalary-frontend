@@ -63,12 +63,12 @@ export function Security() {
     <section
       ref={ref}
       id="security"
-      className="relative overflow-hidden py-24 md:py-32"
+      className="relative overflow-hidden py-16 md:py-24 lg:py-32"
     >
       {/* base background */}
       <div className="absolute inset-0 bg-[#0b0b0b]" />
 
-      <div className="relative mx-auto max-w-[1440px] px-6 md:px-8">
+      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-6 md:px-8">
         {/* HEADER */}
         <div className="max-w-xl md:max-w-3xl">
           <SectionHeader
@@ -90,7 +90,7 @@ export function Security() {
         <motion.div
           style={{ y }}
           onMouseMove={handleMouseMove}
-          className="relative mt-12 md:mt-16 rounded-[24px] border border-white/10 overflow-hidden"
+          className="relative mt-10 overflow-hidden rounded-[18px] border border-white/10 md:mt-16 md:rounded-[24px]"
         >
           {/* =========================
              BACKGROUND IMAGE (CONTAINED)
@@ -157,7 +157,7 @@ export function Security() {
             initial="hidden"
             whileInView="visible"
             viewport={VP_TIGHT}
-            className="relative px-6 py-6 md:px-10 md:py-8"
+            className="relative px-5 py-5 sm:px-6 sm:py-6 md:px-10 md:py-8"
           >
             {FEATURES.map((item, i) => {
               const Icon = item.icon;
@@ -175,15 +175,15 @@ export function Security() {
                     <div className="absolute left-0 top-0 h-full w-[120px] -translate-x-full group-hover:translate-x-[250%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
                   </div>
 
-                  <div className="relative grid grid-cols-[1fr_auto] items-center gap-5 py-5">
-                    <h3 className="text-[0.95rem] md:text-[1.15rem] font-medium text-neutral-300 group-hover:text-white transition">
+                  <div className="relative grid grid-cols-[1fr_auto] items-center gap-3 py-4 sm:gap-5 sm:py-5">
+                    <h3 className="text-[0.9rem] font-medium leading-snug text-neutral-300 transition group-hover:text-white md:text-[1.15rem]">
                       {item.title}
                     </h3>
 
                     <motion.div
                       whileHover={{ scale: 1.1, rotate: 4 }}
                       transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                      className="flex h-11 w-11 md:h-12 md:w-12 items-center justify-center rounded-xl bg-white/5 border border-white/10"
+                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 md:h-12 md:w-12"
                     >
                       <Icon className="h-5 w-5 md:h-6 md:w-6 text-neutral-300 group-hover:text-white transition" />
                     </motion.div>

@@ -17,10 +17,10 @@ export function NewLandingPage() {
     <>
       <PageLoader />
 
-      <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground zl-landing">
+      <div className="zl-landing relative min-h-screen overflow-x-clip bg-background text-foreground">
         <div className="pointer-events-none fixed inset-0 -z-10">
-          <div className="absolute left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-primary/5 blur-[160px]" />
-          <div className="absolute right-[5%] top-[60%] h-[400px] w-[400px] rounded-full bg-primary/3 blur-[140px]" />
+          <div className="absolute left-[10%] top-[20%] h-[min(500px,70vw)] w-[min(500px,70vw)] rounded-full bg-primary/5 blur-[160px]" />
+          <div className="absolute right-[5%] top-[60%] h-[min(400px,65vw)] w-[min(400px,65vw)] rounded-full bg-primary/3 blur-[140px]" />
         </div>
 
         <Navbar />

@@ -267,6 +267,68 @@ body.how-section-active {
   -ms-overflow-style: none;
 }
 
+/* Landing responsiveness guardrails */
+.zl-landing,
+.zl-landing * {
+  min-width: 0;
+}
+
+.zl-landing img {
+  max-width: 100%;
+}
+
+.zl-landing :is(#how, #product, #employers, #employees, #security, #faq) {
+  scroll-margin-top: 6rem;
+}
+
+@supports (min-height: 100dvh) {
+  .zl-hero {
+    min-height: 100dvh;
+  }
+
+  @media (min-width: 1024px) {
+    .zl-hero {
+      min-height: 680px;
+    }
+  }
+}
+
+@media (max-width: 1023px) and (max-height: 560px) {
+  .zl-hero {
+    min-height: 640px;
+    padding-top: 4.75rem;
+  }
+
+  .zl-hero-copy {
+    padding-top: 1rem;
+  }
+
+  .zl-hero-title {
+    font-size: 2.5rem;
+    line-height: 1.02;
+  }
+
+  .zl-hero-subtitle {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .zl-hero-actions {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .zl-hero-title {
+    font-size: 2.25rem;
+  }
+
+  .zl-hero-subtitle {
+    font-size: 0.875rem;
+  }
+}
+
 
 
 

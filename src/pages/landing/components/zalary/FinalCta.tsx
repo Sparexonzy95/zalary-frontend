@@ -37,8 +37,8 @@ export function FinalCta() {
   }
 
   return (
-    <section className="relative h-[50vh] w-full overflow-hidden bg-[#FE9E15] flex items-center justify-center">
-      <div className="mx-auto max-w-[1100px] px-5 md:px-8 w-full h-full">
+    <section className="relative flex min-h-[420px] w-full items-center justify-center overflow-hidden bg-[#FE9E15] py-10 md:min-h-[380px]">
+      <div className="mx-auto w-full max-w-[1100px] px-5 md:px-8">
         <motion.div
           ref={ref}
           onMouseMove={handleMouseMove}
@@ -46,7 +46,7 @@ export function FinalCta() {
           initial="hidden"
           whileInView="visible"
           viewport={VP}
-          className="relative overflow-hidden rounded-[16px] px-8 md:px-14 py-10 text-black h-full"
+          className="relative overflow-hidden rounded-[16px] px-0 py-2 text-black sm:px-3 md:px-6"
         >
           {/* Glow */}
           <motion.div
@@ -56,7 +56,7 @@ export function FinalCta() {
             <div className="absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/30 blur-3xl" />
           </motion.div>
 
-          <div className="relative z-10 flex items-center justify-between gap-10 h-full">
+          <div className="relative z-10 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center md:gap-10">
             {/* LEFT */}
             <div className="flex-1 max-w-[700px]">
               <motion.div
@@ -70,7 +70,7 @@ export function FinalCta() {
 
               <motion.h2
                 variants={fadeUpVariant}
-                className="text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight"
+                className="text-2xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-normal"
               >
                 Run your first private payroll.
                 <span className="block text-black/70">
@@ -90,13 +90,13 @@ export function FinalCta() {
             {/* RIGHT CTA */}
             <motion.div
               variants={itemVariant}
-              className="flex flex-col items-center justify-center gap-3 flex-shrink-0"
+              className="flex w-full flex-shrink-0 flex-col items-stretch justify-center gap-3 sm:w-auto sm:items-center"
             >
               <MotionLink
                 to="/app"
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="decrypt-hover-btn inline-flex items-center gap-2 rounded-none bg-black px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-black/85"
+                className="decrypt-hover-btn inline-flex items-center justify-center gap-2 rounded-none bg-black px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-black/85"
               >
                 Launch App
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

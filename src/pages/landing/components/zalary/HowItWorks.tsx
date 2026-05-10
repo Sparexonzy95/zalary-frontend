@@ -60,6 +60,7 @@ export function HowItWorks() {
 
   const lock = useCallback(() => {
     if (isTouchDevice()) return;
+    if (window.innerWidth < 1024 || window.innerHeight < 700) return;
     document.body.style.overflow = "hidden";
     lockedRef.current = true;
   }, []);
@@ -78,7 +79,7 @@ export function HowItWorks() {
       { threshold: [0.9, 1] }
     );
 
-    const el = document.getElementById("how-section");
+    const el = document.getElementById("how");
     if (el) observer.observe(el);
 
     return () => {
@@ -125,8 +126,8 @@ export function HowItWorks() {
 
   return (
     <section
-      id="how-section"
-      className="relative bg-[#09090B] h-[80vh] flex flex-col overflow-hidden"
+      id="how"
+      className="relative flex min-h-[680px] flex-col overflow-hidden bg-[#09090B] lg:h-[80vh] lg:min-h-[620px]"
     >
       {/* ========================
           HEADER — fixed, never scrolls
@@ -136,7 +137,7 @@ export function HowItWorks() {
         initial="hidden"
         whileInView="visible"
         viewport={VP}
-        className="w-full flex flex-col items-center text-center px-4 pt-7 md:pt-9 pb-3 flex-shrink-0"
+        className="w-full flex-shrink-0 flex flex-col items-center text-center px-4 pt-9 md:pt-9 pb-3"
       >
         {/* Eyebrow */}
         <motion.span
@@ -149,7 +150,7 @@ export function HowItWorks() {
         {/* Title */}
         <motion.h2
           variants={fadeUpVariant}
-          className="text-[20px] sm:text-[26px] md:text-[32px] font-bold leading-[1.1] tracking-[-0.025em] text-white"
+          className="text-[20px] sm:text-[26px] md:text-[32px] font-bold leading-[1.1] tracking-normal text-white"
         >
           From deposit to payout,{" "}
           <span className="text-white/35">every step stays private.</span>
@@ -180,21 +181,21 @@ export function HowItWorks() {
       {/* ========================
           STAGE — fills remaining height
       ======================== */}
-      <div className="flex-1 flex items-center justify-center px-4 sm:px-6 md:px-8 pb-5 md:pb-7 min-h-0">
+      <div className="flex min-h-0 flex-1 items-center justify-center px-4 pb-6 sm:px-6 md:px-8 md:pb-7">
         <motion.div
           key={activeIndex}
           initial={{ opacity: 0, y: 18, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.45, ease: [0.2, 0.8, 0.2, 1] }}
-          className="w-full max-w-[980px] h-full flex flex-col md:flex-row overflow-hidden border border-white/10 rounded-md bg-[#111113]"
+          className="flex h-auto min-h-[360px] w-full max-w-[980px] flex-col overflow-hidden rounded-md border border-white/10 bg-[#111113] md:h-full md:min-h-0 md:flex-row"
         >
           {/* LEFT — text */}
-          <div className="md:w-1/2 flex flex-col justify-center px-6 py-7 sm:p-8 md:p-10 flex-shrink-0">
+          <div className="flex flex-shrink-0 flex-col justify-center px-6 py-7 sm:p-8 md:w-1/2 md:p-10">
             <div className="text-[10px] uppercase tracking-[0.35em] text-white/40 font-mono mb-3 md:mb-4">
               Step {step.index}
             </div>
 
-            <h3 className="text-xl sm:text-2xl md:text-[28px] lg:text-[34px] font-semibold leading-tight text-white">
+            <h3 className="text-xl sm:text-2xl md:text-[28px] lg:text-[34px] font-semibold leading-tight tracking-normal text-white">
               {step.title}
             </h3>
 

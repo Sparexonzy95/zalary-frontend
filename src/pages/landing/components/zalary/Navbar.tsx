@@ -13,7 +13,7 @@ const RESOURCES = [
 ];
 
 const NAV_LINKS = [
-  { label: "View Demo", href: "#demo" },
+  { label: "View Demo", href: "#how" },
   { label: "Use Case", href: "#product" },
 ];
 
@@ -91,7 +91,7 @@ export function Navbar() {
 
       {/* ---------------- NAVBAR ---------------- */}
       <div className="relative border-b border-white/10 bg-black/40 backdrop-blur-xl">
-        <nav className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 md:px-12">
+        <nav className="mx-auto flex h-20 max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 md:px-12">
           {/* LOGO */}
           <Link to="/" aria-label="Go to Zalary home">
             <img
@@ -142,7 +142,7 @@ export function Navbar() {
           {/* DESKTOP CTA */}
           <Link
             to="/app"
-            className="decrypt-hover-btn hidden bg-[#FE9E15] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#FE9E15]/90 md:block"
+            className="decrypt-hover-btn hidden shrink-0 bg-[#FE9E15] px-4 py-2 text-sm font-semibold text-black transition hover:bg-[#FE9E15]/90 md:block lg:px-5"
           >
             Launch App
           </Link>
@@ -197,7 +197,7 @@ export function Navbar() {
             initial="hidden"
             animate="show"
             exit="exit"
-            className="fixed inset-0 z-40 flex flex-col bg-black/80 backdrop-blur-xl"
+            className="fixed inset-0 z-40 flex min-h-0 flex-col overflow-y-auto bg-black/80 backdrop-blur-xl"
           >
             {/* ANNOUNCEMENT BAR (mobile) */}
             {announcementVisible && (
@@ -233,7 +233,7 @@ export function Navbar() {
             </div>
 
             {/* LINKS */}
-            <motion.div className="flex flex-1 flex-col justify-center px-6">
+            <motion.div className="flex flex-1 flex-col justify-center px-6 py-6">
               {[...RESOURCES, ...NAV_LINKS].map((item) => (
                 <motion.a
                   key={item.label}

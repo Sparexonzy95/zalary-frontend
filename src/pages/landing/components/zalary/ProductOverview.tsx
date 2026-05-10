@@ -49,7 +49,7 @@ export function ProductOverview() {
   const [activeCard, setActiveCard] = useState(1);
 
   return (
-    <section className="relative overflow-hidden bg-[#09090B] py-16 md:py-24 lg:py-28">
+    <section id="product" className="relative overflow-hidden bg-[#09090B] py-16 md:py-24 lg:py-28">
       <div className="pointer-events-none absolute left-1/2 top-1/3 h-[400px] w-[400px] md:h-[500px] md:w-[500px] -translate-x-1/2 rounded-full bg-white/[0.02] blur-[140px]" />
 
       <div className="relative mx-auto max-w-[1500px] px-5 md:px-8">
@@ -64,7 +64,7 @@ export function ProductOverview() {
         >
           <motion.h2
             variants={fadeUpVariant}
-            className="text-[22px] sm:text-[28px] md:text-[36px] font-bold leading-[1.1] tracking-[-0.025em] text-white"
+            className="text-[22px] sm:text-[28px] md:text-[36px] font-bold leading-[1.1] tracking-normal text-white"
           >
             Confidential payroll infrastructure,
             <span className="block text-white/50">
@@ -128,7 +128,7 @@ export function ProductOverview() {
                 >
                   <h3
                     className={`
-                      font-semibold leading-[1.1] tracking-[-0.03em] text-white
+                      font-semibold leading-[1.1] tracking-normal text-white
                       transition-all duration-500
                       ${isActive ? "text-[26px]" : "text-[20px]"}
                     `}
@@ -169,7 +169,7 @@ export function ProductOverview() {
               variants={cardVariant}
               className="overflow-hidden bg-[#111113]"
             >
-              <div className="relative h-[220px] sm:h-[240px] overflow-hidden">
+              <div className="relative h-[190px] overflow-hidden sm:h-[220px]">
                 <img
                   src={card.image}
                   alt={card.title}
