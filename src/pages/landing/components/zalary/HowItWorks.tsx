@@ -52,6 +52,8 @@ const isTouchDevice = () =>
 
 export function HowItWorks() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const mobileScrollerRef = useRef<HTMLDivElement>(null);
   const indexRef = useRef(0);
   const wheelBuffer = useRef(0);
   const lockedRef = useRef(false);
@@ -122,12 +124,46 @@ export function HowItWorks() {
     return () => window.removeEventListener("wheel", onWheel);
   }, [unlock]);
 
+  const handleMobileScroll = useCallback(() => {
+    const scroller = mobileScrollerRef.current;
+    if (!scroller) return;
+
+    const cards = Array.from(scroller.children) as HTMLElement[];
+    if (cards.length === 0) return;
+
+    const scrollerCenter = scroller.scrollLeft + scroller.clientWidth / 2;
+    const closestIndex = cards.reduce((closest, card, index) => {
+      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const closestCard = cards[closest];
+      const closestCenter = closestCard.offsetLeft + closestCard.offsetWidth / 2;
+
+      return Math.abs(cardCenter - scrollerCenter) <
+        Math.abs(closestCenter - scrollerCenter)
+        ? index
+        : closest;
+    }, 0);
+
+    setMobileIndex(closestIndex);
+  }, []);
+
+  const scrollToMobileStep = useCallback((index: number) => {
+    const scroller = mobileScrollerRef.current;
+    const card = scroller?.children[index] as HTMLElement | undefined;
+
+    if (!scroller || !card) return;
+
+    scroller.scrollTo({
+      left: card.offsetLeft - (scroller.clientWidth - card.offsetWidth) / 2,
+      behavior: "smooth",
+    });
+  }, []);
+
   const step = STEPS[activeIndex];
 
   return (
     <section
       id="how"
-      className="relative flex min-h-[680px] flex-col overflow-hidden bg-[#09090B] lg:h-[80vh] lg:min-h-[620px]"
+      className="relative flex flex-col overflow-hidden bg-[#09090B] py-12 sm:py-14 lg:h-[80vh] lg:min-h-[620px] lg:py-0"
     >
       {/* ========================
           HEADER — fixed, never scrolls
@@ -137,7 +173,7 @@ export function HowItWorks() {
         initial="hidden"
         whileInView="visible"
         viewport={VP}
-        className="w-full flex-shrink-0 flex flex-col items-center text-center px-4 pt-9 md:pt-9 pb-3"
+        className="w-full flex-shrink-0 flex flex-col items-center text-center px-4 pb-5 lg:pt-9 lg:pb-3"
       >
         {/* Eyebrow */}
         <motion.span
@@ -166,7 +202,7 @@ export function HowItWorks() {
         </motion.p>
 
         {/* Step progress dots */}
-        <div className="flex items-center gap-1.5 mt-3 md:mt-4">
+        <div className="mt-3 hidden items-center gap-1.5 md:mt-4 lg:flex">
           {STEPS.map((_, i) => (
             <div
               key={i}
@@ -181,7 +217,61 @@ export function HowItWorks() {
       {/* ========================
           STAGE — fills remaining height
       ======================== */}
-      <div className="flex min-h-0 flex-1 items-center justify-center px-4 pb-6 sm:px-6 md:px-8 md:pb-7">
+      <div className="lg:hidden">
+        <div
+          ref={mobileScrollerRef}
+          onScroll={handleMobileScroll}
+          className="snap-scroll-hidden flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-3 sm:px-6 md:px-8"
+          aria-label="How Zalary works steps"
+        >
+          {STEPS.map((item) => (
+            <article
+              key={item.index}
+              className="flex w-[min(84vw,430px)] flex-none snap-center flex-col overflow-hidden rounded-md border border-white/10 bg-[#111113] shadow-2xl shadow-black/20"
+            >
+              <div className="relative h-[180px] overflow-hidden bg-[#0E0F12]/70 sm:h-[220px] md:h-[260px]">
+                <img
+                  src={item.image}
+                  alt=""
+                  className="h-full w-full object-contain p-5 sm:p-6"
+                  draggable={false}
+                />
+              </div>
+
+              <div className="flex min-h-[250px] flex-col px-6 py-6 sm:min-h-[230px] sm:p-7">
+                <div className="mb-3 font-mono text-[10px] uppercase tracking-[0.28em] text-white/40">
+                  Step {item.index}
+                </div>
+
+                <h3 className="text-xl font-semibold leading-tight tracking-normal text-white sm:text-2xl">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-[13px] leading-[1.7] text-white/70 sm:text-[14px]">
+                  {item.body}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-4 flex items-center justify-center gap-2">
+          {STEPS.map((stepItem, i) => (
+            <button
+              key={stepItem.index}
+              type="button"
+              onClick={() => scrollToMobileStep(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === mobileIndex ? "w-6 bg-white/70" : "w-2 bg-white/25"
+              }`}
+              aria-label={`Show step ${stepItem.index}`}
+              aria-current={i === mobileIndex ? "step" : undefined}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="hidden min-h-0 flex-1 items-center justify-center px-8 pb-7 lg:flex">
         <motion.div
           key={activeIndex}
           initial={{ opacity: 0, y: 18, scale: 0.98 }}
